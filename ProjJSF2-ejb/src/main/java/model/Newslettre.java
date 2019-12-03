@@ -52,7 +52,7 @@ public class Newslettre implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public Object getMailUser() {
+	public String getMailUser() {
 		return this.mailUser;
 	}
 

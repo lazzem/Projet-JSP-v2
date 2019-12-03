@@ -21,7 +21,7 @@ public class Boutique implements Serializable {
 	private int id_boutique;
 
 	@Column(name="Ascisse_X")
-	private float ascisse_X;
+	private double ascisse_X;
 
 	@Column(name="Email")
 	private String email;
@@ -36,7 +36,7 @@ public class Boutique implements Serializable {
 	private String nom;
 
 	@Column(name="Ordonné_Y")
-	private float ordonné_Y;
+	private double ordonné_Y;
 
 	@Column(name="Phone")
 	private String phone;
@@ -52,9 +52,9 @@ public class Boutique implements Serializable {
 	@JoinColumn(name="Id_ville")
 	private Ville ville;
 
-	//bi-directional many-to-many association to Produit
-	@ManyToMany(mappedBy="boutiques")
-	private List<Produit> produits;
+	//bi-directional many-to-one association to Stock
+	@OneToMany(mappedBy="boutique")
+	private List<Stock> stocks;
 
 	public Boutique() {
 	}
@@ -67,11 +67,11 @@ public class Boutique implements Serializable {
 		this.id_boutique = id_boutique;
 	}
 
-	public float getAscisse_X() {
+	public double getAscisse_X() {
 		return this.ascisse_X;
 	}
 
-	public void setAscisse_X(float ascisse_X) {
+	public void setAscisse_X(double ascisse_X) {
 		this.ascisse_X = ascisse_X;
 	}
 
@@ -107,11 +107,11 @@ public class Boutique implements Serializable {
 		this.nom = nom;
 	}
 
-	public float getOrdonné_Y() {
+	public double getOrdonné_Y() {
 		return this.ordonné_Y;
 	}
 
-	public void setOrdonné_Y(float ordonné_Y) {
+	public void setOrdonné_Y(double ordonné_Y) {
 		this.ordonné_Y = ordonné_Y;
 	}
 
@@ -147,12 +147,26 @@ public class Boutique implements Serializable {
 		this.ville = ville;
 	}
 
-	public List<Produit> getProduits() {
-		return this.produits;
+	public List<Stock> getStocks() {
+		return this.stocks;
 	}
 
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
+	public void setStocks(List<Stock> stocks) {
+		this.stocks = stocks;
+	}
+
+	public Stock addStock(Stock stock) {
+		getStocks().add(stock);
+		stock.setBoutique(this);
+
+		return stock;
+	}
+
+	public Stock removeStock(Stock stock) {
+		getStocks().remove(stock);
+		stock.setBoutique(null);
+
+		return stock;
 	}
 
 }

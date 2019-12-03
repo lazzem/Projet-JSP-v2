@@ -38,7 +38,7 @@ public class TypeRec implements Serializable {
 		this.id_type = id_type;
 	}
 
-	public Object getTypeNom() {
+	public String getTypeNom() {
 		return this.typeNom;
 	}
 

@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -25,7 +24,7 @@ public class Complaint implements Serializable {
 	private String clossing_date;
 
 	@Column(name="Creation_date")
-	private Date creation_date;
+	private Timestamp creation_date;
 
 	@Column(name="Description")
 	private String description;
@@ -69,11 +68,11 @@ public class Complaint implements Serializable {
 		this.clossing_date = clossing_date;
 	}
 
-	public Date getCreation_date() {
+	public Timestamp getCreation_date() {
 		return this.creation_date;
 	}
 
-	public void setCreation_date(Date creation_date) {
+	public void setCreation_date(Timestamp creation_date) {
 		this.creation_date = creation_date;
 	}
 

@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -22,15 +21,13 @@ public class Commande implements Serializable {
 	private int idCommande;
 
 	@Column(name="DateCommand")
-	private Date dateCommand;
+	private Timestamp dateCommand;
+
+	@Column(name="Description")
+	private String description;
 
 	@Column(name="PrixTotal")
-	private float prixTotal;
-
-	//bi-directional many-to-one association to Panier
-	@ManyToOne
-	@JoinColumn(name="IdPanier")
-	private Panier panier;
+	private double prixTotal;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -48,28 +45,28 @@ public class Commande implements Serializable {
 		this.idCommande = idCommande;
 	}
 
-	public Date getDateCommand() {
+	public Timestamp getDateCommand() {
 		return this.dateCommand;
 	}
 
-	public void setDateCommand(Date dateCommand) {
+	public void setDateCommand(Timestamp dateCommand) {
 		this.dateCommand = dateCommand;
 	}
 
-	public float getPrixTotal() {
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public double getPrixTotal() {
 		return this.prixTotal;
 	}
 
-	public void setPrixTotal(float prixTotal) {
+	public void setPrixTotal(double prixTotal) {
 		this.prixTotal = prixTotal;
-	}
-
-	public Panier getPanier() {
-		return this.panier;
-	}
-
-	public void setPanier(Panier panier) {
-		this.panier = panier;
 	}
 
 	public User getUser() {

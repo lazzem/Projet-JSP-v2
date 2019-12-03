@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 
@@ -23,8 +22,7 @@ public class User implements Serializable {
 	private int userID;
 
 	@Column(name="BirthDate")
-    @Temporal(TemporalType.TIMESTAMP)
-	private Date birthDate;
+	private Timestamp birthDate;
 
 	@Column(name="CIN")
 	private int cin;
@@ -60,8 +58,7 @@ public class User implements Serializable {
 	private String role;
 
 	@Column(name="SignUpDate")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date signUpDate;
+	private Timestamp signUpDate;
 
 	@Column(name="UserName")
 	private String userName;
@@ -93,11 +90,11 @@ public class User implements Serializable {
 		this.userID = userID;
 	}
 
-	public Date getBirthDate() {
+	public Timestamp getBirthDate() {
 		return this.birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(Timestamp birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -189,11 +186,11 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
-	public Date getSignUpDate() {
+	public Timestamp getSignUpDate() {
 		return this.signUpDate;
 	}
 
-	public void setSignUpDate(Date signUpDate) {
+	public void setSignUpDate(Timestamp signUpDate) {
 		this.signUpDate = signUpDate;
 	}
 
@@ -292,45 +289,5 @@ public class User implements Serializable {
 
 		return panier;
 	}
-
-	public User(Date birthDate, int cin, String confirmPassword, String email, int gender, boolean isActive,
-			String lastName, String name, String password, int phone, String picture, String role, Date signUpDate,
-			String userName) {
-		super();
-		this.birthDate = birthDate;
-		this.cin = cin;
-		this.confirmPassword = confirmPassword;
-		this.email = email;
-		this.gender = gender;
-		this.isActive = isActive;
-		this.lastName = lastName;
-		this.name = name;
-		this.password = password;
-		this.phone = phone;
-		this.picture = picture;
-		this.role = role;
-		this.signUpDate = signUpDate;
-		this.userName = userName;
-	}
-	
-	public User(int cin, String confirmPassword, String email, int gender, boolean isActive,
-			String lastName, String name, String password, int phone, String picture, String role,
-			String userName) {
-		super();
-		this.cin = cin;
-		this.confirmPassword = confirmPassword;
-		this.email = email;
-		this.gender = gender;
-		this.isActive = isActive;
-		this.lastName = lastName;
-		this.name = name;
-		this.password = password;
-		this.phone = phone;
-		this.picture = picture;
-		this.role = role;
-		this.userName = userName;
-	}
-	
-	
 
 }

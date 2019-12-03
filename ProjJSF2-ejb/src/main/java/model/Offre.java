@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -22,10 +21,10 @@ public class Offre implements Serializable {
 	private int idOffer;
 
 	@Column(name="DateDebut")
-	private Date dateDebut;
+	private Timestamp dateDebut;
 
 	@Column(name="DateFin")
-	private Date dateFin;
+	private Timestamp dateFin;
 
 	@Column(name="Description")
 	private String description;
@@ -55,7 +54,7 @@ public class Offre implements Serializable {
 		this.idOffer = idOffer;
 	}
 
-	public Date getDateDebut() {
+	public Timestamp getDateDebut() {
 		return this.dateDebut;
 	}
 
@@ -63,7 +62,7 @@ public class Offre implements Serializable {
 		this.dateDebut = dateDebut;
 	}
 
-	public Date getDateFin() {
+	public Timestamp getDateFin() {
 		return this.dateFin;
 	}
 
@@ -71,7 +70,7 @@ public class Offre implements Serializable {
 		this.dateFin = dateFin;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
@@ -87,7 +86,7 @@ public class Offre implements Serializable {
 		this.idProduit = idProduit;
 	}
 
-	public Object getImage() {
+	public String getImage() {
 		return this.image;
 	}
 
@@ -95,7 +94,7 @@ public class Offre implements Serializable {
 		this.image = image;
 	}
 
-	public Object getTitee() {
+	public String getTitee() {
 		return this.titee;
 	}
 

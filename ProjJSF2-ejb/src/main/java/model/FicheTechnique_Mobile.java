@@ -58,13 +58,13 @@ public class FicheTechnique_Mobile implements Serializable {
 	private String photo;
 
 	@Column(name="Poids")
-	private float poids;
+	private double poids;
 
 	@Column(name="Port_charge")
 	private String port_charge;
 
 	@Column(name="Prix")
-	private float prix;
+	private double prix;
 
 	@Column(name="Ram")
 	private String ram;
@@ -100,7 +100,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.batterie = batterie;
 	}
 
-	public Object getCapteur_enpreintes() {
+	public String getCapteur_enpreintes() {
 		return this.capteur_enpreintes;
 	}
 
@@ -108,7 +108,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.capteur_enpreintes = capteur_enpreintes;
 	}
 
-	public Object getColoris() {
+	public String getColoris() {
 		return this.coloris;
 	}
 
@@ -116,7 +116,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.coloris = coloris;
 	}
 
-	public Object getConnectivite() {
+	public String getConnectivite() {
 		return this.connectivite;
 	}
 
@@ -124,7 +124,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.connectivite = connectivite;
 	}
 
-	public Object getDefinition() {
+	public String getDefinition() {
 		return this.definition;
 	}
 
@@ -132,7 +132,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.definition = definition;
 	}
 
-	public Object getDimensions() {
+	public String getDimensions() {
 		return this.dimensions;
 	}
 
@@ -140,7 +140,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.dimensions = dimensions;
 	}
 
-	public Object getEcrant() {
+	public String getEcrant() {
 		return this.ecrant;
 	}
 
@@ -148,7 +148,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.ecrant = ecrant;
 	}
 
-	public Object getMarque() {
+	public String getMarque() {
 		return this.marque;
 	}
 
@@ -156,7 +156,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.marque = marque;
 	}
 
-	public Object getMemoire_interne() {
+	public String getMemoire_interne() {
 		return this.memoire_interne;
 	}
 
@@ -164,7 +164,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.memoire_interne = memoire_interne;
 	}
 
-	public Object getMicro_sd() {
+	public String getMicro_sd() {
 		return this.micro_sd;
 	}
 
@@ -172,7 +172,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.micro_sd = micro_sd;
 	}
 
-	public Object getNfc() {
+	public String getNfc() {
 		return this.nfc;
 	}
 
@@ -180,7 +180,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.nfc = nfc;
 	}
 
-	public Object getOs() {
+	public String getOs() {
 		return this.os;
 	}
 
@@ -188,7 +188,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.os = os;
 	}
 
-	public Object getPhoto() {
+	public String getPhoto() {
 		return this.photo;
 	}
 
@@ -196,15 +196,15 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.photo = photo;
 	}
 
-	public float getPoids() {
+	public double getPoids() {
 		return this.poids;
 	}
 
-	public void setPoids(float poids) {
+	public void setPoids(double poids) {
 		this.poids = poids;
 	}
 
-	public Object getPort_charge() {
+	public String getPort_charge() {
 		return this.port_charge;
 	}
 
@@ -212,15 +212,15 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.port_charge = port_charge;
 	}
 
-	public float getPrix() {
+	public double getPrix() {
 		return this.prix;
 	}
 
-	public void setPrix(float prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
-	public Object getRam() {
+	public String getRam() {
 		return this.ram;
 	}
 
@@ -228,7 +228,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.ram = ram;
 	}
 
-	public Object getRecharge_rapide() {
+	public String getRecharge_rapide() {
 		return this.recharge_rapide;
 	}
 
@@ -236,7 +236,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.recharge_rapide = recharge_rapide;
 	}
 
-	public Object getRecharge_sansfil() {
+	public String getRecharge_sansfil() {
 		return this.recharge_sansfil;
 	}
 
@@ -244,7 +244,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.recharge_sansfil = recharge_sansfil;
 	}
 
-	public Object getResistance_eau() {
+	public String getResistance_eau() {
 		return this.resistance_eau;
 	}
 
@@ -252,7 +252,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		this.resistance_eau = resistance_eau;
 	}
 
-	public Object getSoc() {
+	public String getSoc() {
 		return this.soc;
 	}
 

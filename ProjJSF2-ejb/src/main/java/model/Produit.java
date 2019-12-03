@@ -6,11 +6,10 @@ import java.util.List;
 
 
 /**
- * The persistent class for the Produits database table.
+ * The persistent class for the Produit database table.
  * 
  */
 @Entity
-@Table(name="Produits")
 @NamedQuery(name="Produit.findAll", query="SELECT p FROM Produit p")
 public class Produit implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -36,57 +35,27 @@ public class Produit implements Serializable {
 	private String nom;
 
 	@Column(name="Price")
-	private float price;
+	private double price;
 
 	@Column(name="Quantitee")
 	private int quantitee;
 
-	//bi-directional many-to-one association to Offre
-	@OneToMany(mappedBy="produit")
-	private List<Offre> offres;
-
 	//bi-directional many-to-one association to Panier
 	@OneToMany(mappedBy="produit")
 	private List<Panier> paniers;
-
-	//bi-directional many-to-many association to Boutique
-	@ManyToMany
-	@JoinTable(
-		name="BoutiqueProduit"
-		, joinColumns={
-			@JoinColumn(name="Id_boutique")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="Id_produit")
-			}
-		)
-	private List<Boutique> boutiques;
 
 	//bi-directional many-to-one association to Category
 	@ManyToOne
 	@JoinColumn(name="Id_categorie")
 	private Category category;
 
-	//bi-directional many-to-many association to Pack
-	@ManyToMany
-	@JoinTable(
-		name="PacksProduits"
-		, joinColumns={
-			@JoinColumn(name="Produit_Id_produit")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="Packs_IdPack")
-			}
-		)
-	private List<Pack> packs;
-
-	//bi-directional many-to-one association to Promotion
-	@OneToMany(mappedBy="produit")
-	private List<Promotion> promotions;
-
 	//bi-directional many-to-one association to Publicite
 	@OneToMany(mappedBy="produit")
 	private List<Publicite> publicites;
+
+	//bi-directional many-to-one association to Stock
+	@OneToMany(mappedBy="produit")
+	private List<Stock> stocks;
 
 	public Produit() {
 	}
@@ -139,11 +108,11 @@ public class Produit implements Serializable {
 		this.nom = nom;
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -153,28 +122,6 @@ public class Produit implements Serializable {
 
 	public void setQuantitee(int quantitee) {
 		this.quantitee = quantitee;
-	}
-
-	public List<Offre> getOffres() {
-		return this.offres;
-	}
-
-	public void setOffres(List<Offre> offres) {
-		this.offres = offres;
-	}
-
-	public Offre addOffre(Offre offre) {
-		getOffres().add(offre);
-		offre.setProduit(this);
-
-		return offre;
-	}
-
-	public Offre removeOffre(Offre offre) {
-		getOffres().remove(offre);
-		offre.setProduit(null);
-
-		return offre;
 	}
 
 	public List<Panier> getPaniers() {
@@ -199,50 +146,12 @@ public class Produit implements Serializable {
 		return panier;
 	}
 
-	public List<Boutique> getBoutiques() {
-		return this.boutiques;
-	}
-
-	public void setBoutiques(List<Boutique> boutiques) {
-		this.boutiques = boutiques;
-	}
-
 	public Category getCategory() {
 		return this.category;
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public List<Pack> getPacks() {
-		return this.packs;
-	}
-
-	public void setPacks(List<Pack> packs) {
-		this.packs = packs;
-	}
-
-	public List<Promotion> getPromotions() {
-		return this.promotions;
-	}
-
-	public void setPromotions(List<Promotion> promotions) {
-		this.promotions = promotions;
-	}
-
-	public Promotion addPromotion(Promotion promotion) {
-		getPromotions().add(promotion);
-		promotion.setProduit(this);
-
-		return promotion;
-	}
-
-	public Promotion removePromotion(Promotion promotion) {
-		getPromotions().remove(promotion);
-		promotion.setProduit(null);
-
-		return promotion;
 	}
 
 	public List<Publicite> getPublicites() {
@@ -265,6 +174,28 @@ public class Produit implements Serializable {
 		publicite.setProduit(null);
 
 		return publicite;
+	}
+
+	public List<Stock> getStocks() {
+		return this.stocks;
+	}
+
+	public void setStocks(List<Stock> stocks) {
+		this.stocks = stocks;
+	}
+
+	public Stock addStock(Stock stock) {
+		getStocks().add(stock);
+		stock.setProduit(this);
+
+		return stock;
+	}
+
+	public Stock removeStock(Stock stock) {
+		getStocks().remove(stock);
+		stock.setProduit(null);
+
+		return stock;
 	}
 
 }

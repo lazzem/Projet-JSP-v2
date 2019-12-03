@@ -47,7 +47,7 @@ public class Publicite implements Serializable {
 		this.idPublicite = idPublicite;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
@@ -63,7 +63,7 @@ public class Publicite implements Serializable {
 		this.idProduct = idProduct;
 	}
 
-	public Object getImage() {
+	public String getImage() {
 		return this.image;
 	}
 
@@ -71,7 +71,7 @@ public class Publicite implements Serializable {
 		this.image = image;
 	}
 
-	public Object getTitre() {
+	public String getTitre() {
 		return this.titre;
 	}
 

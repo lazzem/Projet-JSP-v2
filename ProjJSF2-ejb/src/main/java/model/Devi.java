@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -21,8 +20,8 @@ public class Devi implements Serializable {
 	@Column(name="IdDevis")
 	private int idDevis;
 
-	@Column(name="DateCommande")
-	private Date dateCommande;
+	@Column(name="DateDevis")
+	private Timestamp dateDevis;
 
 	@Column(name="Description")
 	private String description;
@@ -31,10 +30,15 @@ public class Devi implements Serializable {
 	private int idUser;
 
 	@Column(name="PrixTotal")
-	private float prixTotal;
+	private double prixTotal;
 
 	@Column(name="Status")
 	private String status;
+
+	//bi-directional many-to-one association to Produit
+	@ManyToOne
+	@JoinColumn(name="IdProduit")
+	private Produit produit;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -52,12 +56,12 @@ public class Devi implements Serializable {
 		this.idDevis = idDevis;
 	}
 
-	public Date getDateCommande() {
-		return this.dateCommande;
+	public Timestamp getDateDevis() {
+		return this.dateDevis;
 	}
 
-	public void setDateCommande(Date dateCommande) {
-		this.dateCommande = dateCommande;
+	public void setDateDevis(Timestamp dateDevis) {
+		this.dateDevis = dateDevis;
 	}
 
 	public String getDescription() {
@@ -76,11 +80,11 @@ public class Devi implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public float getPrixTotal() {
+	public double getPrixTotal() {
 		return this.prixTotal;
 	}
 
-	public void setPrixTotal(float prixTotal) {
+	public void setPrixTotal(double prixTotal) {
 		this.prixTotal = prixTotal;
 	}
 
@@ -90,6 +94,14 @@ public class Devi implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Produit getProduit() {
+		return this.produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
 	}
 
 	public User getUser() {

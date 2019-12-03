@@ -3,16 +3,13 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
 
 
 /**
- * The persistent class for the Packs database table.
+ * The persistent class for the Pack database table.
  * 
  */
 @Entity
-@Table(name="Packs")
 @NamedQuery(name="Pack.findAll", query="SELECT p FROM Pack p")
 public class Pack implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,10 +20,10 @@ public class Pack implements Serializable {
 	private int idPack;
 
 	@Column(name="DateDebut")
-	private Date dateDebut;
+	private Timestamp dateDebut;
 
 	@Column(name="DateFin")
-	private Date dateFin;
+	private Timestamp dateFin;
 
 	@Column(name="Description")
 	private String description;
@@ -38,14 +35,10 @@ public class Pack implements Serializable {
 	private String image;
 
 	@Column(name="Prix")
-	private float prix;
+	private double prix;
 
 	@Column(name="Titre")
 	private String titre;
-
-	//bi-directional many-to-many association to Produit
-	@ManyToMany(mappedBy="packs")
-	private List<Produit> produits;
 
 	public Pack() {
 	}
@@ -58,23 +51,23 @@ public class Pack implements Serializable {
 		this.idPack = idPack;
 	}
 
-	public Date getDateDebut() {
+	public Timestamp getDateDebut() {
 		return this.dateDebut;
 	}
 
-	public void setDateDebut(Date dateDebut) {
+	public void setDateDebut(Timestamp dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public Date getDateFin() {
+	public Timestamp getDateFin() {
 		return this.dateFin;
 	}
 
-	public void setDateFin(Date dateFin) {
+	public void setDateFin(Timestamp dateFin) {
 		this.dateFin = dateFin;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
@@ -90,7 +83,7 @@ public class Pack implements Serializable {
 		this.idProduit = idProduit;
 	}
 
-	public Object getImage() {
+	public String getImage() {
 		return this.image;
 	}
 
@@ -98,28 +91,20 @@ public class Pack implements Serializable {
 		this.image = image;
 	}
 
-	public float getPrix() {
+	public double getPrix() {
 		return this.prix;
 	}
 
-	public void setPrix(float prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
-	public Object getTitre() {
+	public String getTitre() {
 		return this.titre;
 	}
 
 	public void setTitre(String titre) {
 		this.titre = titre;
-	}
-
-	public List<Produit> getProduits() {
-		return this.produits;
-	}
-
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
 	}
 
 }

@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -22,16 +21,16 @@ public class Promotion implements Serializable {
 	private int idPromotion;
 
 	@Column(name="DateFin")
-	private Date dateFin;
+	private Timestamp dateFin;
 
 	@Column(name="IdProduit")
 	private int idProduit;
 
 	@Column(name="NewPrice")
-	private float newPrice;
+	private double newPrice;
 
 	@Column(name="Remise")
-	private float remise;
+	private double remise;
 
 	//bi-directional many-to-one association to Produit
 	@ManyToOne
@@ -49,7 +48,7 @@ public class Promotion implements Serializable {
 		this.idPromotion = idPromotion;
 	}
 
-	public Date getDateFin() {
+	public Timestamp getDateFin() {
 		return this.dateFin;
 	}
 
@@ -65,19 +64,19 @@ public class Promotion implements Serializable {
 		this.idProduit = idProduit;
 	}
 
-	public float getNewPrice() {
+	public double getNewPrice() {
 		return this.newPrice;
 	}
 
-	public void setNewPrice(float newPrice) {
+	public void setNewPrice(double newPrice) {
 		this.newPrice = newPrice;
 	}
 
-	public float getRemise() {
+	public double getRemise() {
 		return this.remise;
 	}
 
-	public void setRemise(float remise) {
+	public void setRemise(double remise) {
 		this.remise = remise;
 	}
 
