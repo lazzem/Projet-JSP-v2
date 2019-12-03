@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">	    
+    <h:panelGroup columns="2">
+  		<h:form>
+ 			 <table>
+				<h:panelGroup columns="2">
+					<h:form>
+						<h:dataTable value="#{userBean.allUsers}" var="listUser" border="1">
+							
+							<h:column><f:facet name="header"><h:outputText value="userID" /></f:facet>
+							<h:outputText value="#{listUser.userID}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="lastName" /></f:facet>
+							<h:outputText value="#{listUser.lastName}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="name" /></f:facet>
+							<h:outputText value="#{listUser.name}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="email" /></f:facet>
+							<h:outputText value="#{listUser.email}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="password" /></f:facet>
+							<h:outputText value="#{listUser.password}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="phone" /></f:facet>
+							<h:outputText value="#{listUser.phone}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="role" /></f:facet>
+							<h:outputText value="#{listUser.role}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Delete" 
+					action="#{userBean.removeUser(listUser.userID)}" />
+				<h:message for="btn" /></h:column>
+						</h:dataTable>
+					</h:form>
+				</h:panelGroup>
+			</table>
+		</h:form>
+	</h:panelGroup>
+   </ui:define> 
+</ui:composition>

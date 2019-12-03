@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">
+
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					<tr>
+						<td><h:outputText value="Birthdate"></h:outputText></td>
+						<td><h:inputText value="#{userBean.birthDate}">
+						<f:convertDateTime pattern="yyyy-MM-dd"/>
+						</h:inputText></td>				
+					</tr>
+					<tr>
+						<td><h:outputText value="cin"></h:outputText></td>
+						<td><h:inputText value="#{userBean.cin}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="confirmPassword"></h:outputText></td>
+						<td><h:inputSecret value="#{userBean.confirmPassword}"></h:inputSecret></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="email"></h:outputText></td>
+						<td><h:inputText value="#{userBean.email}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="gender"></h:outputText></td>
+						<td><h:inputText value="#{userBean.gender}"></h:inputText></td>
+					</tr>
+					
+					
+					<tr>
+						<td><h:outputText value="lastName"></h:outputText></td>
+						<td><h:inputText value="#{userBean.lastName}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="name"></h:outputText></td>
+						<td><h:inputText value="#{userBean.name}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="password"></h:outputText></td>
+						<td><h:inputSecret value="#{userBean.password}"></h:inputSecret></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="phone"></h:outputText></td>
+						<td><h:inputText value="#{userBean.phone}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="picture"></h:outputText></td>
+						<td><h:inputText value="#{userBean.picture}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="role"></h:outputText></td>
+						<td><h:inputText value="#{userBean.role}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="signUpDate"></h:outputText></td>
+						<td><h:inputText value="#{userBean.signUpDate}">
+						<f:convertDateTime pattern="yyyy-MM-dd"/>
+						</h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="userName"></h:outputText></td>
+						<td><h:inputText value="#{userBean.userName}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td colspan="2"><h:commandLink value="Ajouter Employé"
+								action="#{userBean.addUser()}" /></td>
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>
