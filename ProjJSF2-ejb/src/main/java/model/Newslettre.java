@@ -23,7 +23,7 @@ public class Newslettre implements Serializable {
 	private int idUser;
 
 	@Column(name="MailUser")
-	private String mailUser;
+	private Object mailUser;
 
 	@Column(name="PhoneUser")
 	private int phoneUser;
@@ -56,7 +56,7 @@ public class Newslettre implements Serializable {
 		return this.mailUser;
 	}
 
-	public void setMailUser(String mailUser) {
+	public void setMailUser(Object mailUser) {
 		this.mailUser = mailUser;
 	}
 

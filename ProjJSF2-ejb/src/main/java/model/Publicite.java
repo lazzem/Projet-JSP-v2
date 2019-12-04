@@ -20,16 +20,16 @@ public class Publicite implements Serializable {
 	private int idPublicite;
 
 	@Column(name="Description")
-	private String description;
+	private Object description;
 
 	@Column(name="IdProduct")
 	private int idProduct;
 
 	@Column(name="Image")
-	private String image;
+	private Object image;
 
 	@Column(name="Titre")
-	private String titre;
+	private Object titre;
 
 	//bi-directional many-to-one association to Produit
 	@ManyToOne
@@ -51,7 +51,7 @@ public class Publicite implements Serializable {
 		return this.description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(Object description) {
 		this.description = description;
 	}
 
@@ -67,7 +67,7 @@ public class Publicite implements Serializable {
 		return this.image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(Object image) {
 		this.image = image;
 	}
 
@@ -75,7 +75,7 @@ public class Publicite implements Serializable {
 		return this.titre;
 	}
 
-	public void setTitre(String titre) {
+	public void setTitre(Object titre) {
 		this.titre = titre;
 	}
 

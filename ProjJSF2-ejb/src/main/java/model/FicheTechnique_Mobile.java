@@ -22,64 +22,64 @@ public class FicheTechnique_Mobile implements Serializable {
 	private int batterie;
 
 	@Column(name="Capteur_enpreintes")
-	private String capteur_enpreintes;
+	private Object capteur_enpreintes;
 
 	@Column(name="Coloris")
-	private String coloris;
+	private Object coloris;
 
 	@Column(name="Connectivite")
-	private String connectivite;
+	private Object connectivite;
 
 	@Column(name="Definition")
-	private String definition;
+	private Object definition;
 
 	@Column(name="Dimensions")
-	private String dimensions;
+	private Object dimensions;
 
 	@Column(name="Ecrant")
-	private String ecrant;
+	private Object ecrant;
 
 	@Column(name="Marque")
-	private String marque;
+	private Object marque;
 
 	@Column(name="Memoire_interne")
-	private String memoire_interne;
+	private Object memoire_interne;
 
 	@Column(name="Micro_sd")
-	private String micro_sd;
+	private Object micro_sd;
 
 	@Column(name="Nfc")
-	private String nfc;
+	private Object nfc;
 
 	@Column(name="Os")
-	private String os;
+	private Object os;
 
 	@Column(name="Photo")
-	private String photo;
+	private Object photo;
 
 	@Column(name="Poids")
 	private float poids;
 
 	@Column(name="Port_charge")
-	private String port_charge;
+	private Object port_charge;
 
 	@Column(name="Prix")
 	private float prix;
 
 	@Column(name="Ram")
-	private String ram;
+	private Object ram;
 
 	@Column(name="Recharge_rapide")
-	private String recharge_rapide;
+	private Object recharge_rapide;
 
 	@Column(name="Recharge_sansfil")
-	private String recharge_sansfil;
+	private Object recharge_sansfil;
 
 	@Column(name="Resistance_eau")
-	private String resistance_eau;
+	private Object resistance_eau;
 
 	@Column(name="Soc")
-	private String soc;
+	private Object soc;
 
 	public FicheTechnique_Mobile() {
 	}
@@ -104,7 +104,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.capteur_enpreintes;
 	}
 
-	public void setCapteur_enpreintes(String capteur_enpreintes) {
+	public void setCapteur_enpreintes(Object capteur_enpreintes) {
 		this.capteur_enpreintes = capteur_enpreintes;
 	}
 
@@ -112,7 +112,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.coloris;
 	}
 
-	public void setColoris(String coloris) {
+	public void setColoris(Object coloris) {
 		this.coloris = coloris;
 	}
 
@@ -120,7 +120,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.connectivite;
 	}
 
-	public void setConnectivite(String connectivite) {
+	public void setConnectivite(Object connectivite) {
 		this.connectivite = connectivite;
 	}
 
@@ -128,7 +128,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.definition;
 	}
 
-	public void setDefinition(String definition) {
+	public void setDefinition(Object definition) {
 		this.definition = definition;
 	}
 
@@ -136,7 +136,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.dimensions;
 	}
 
-	public void setDimensions(String dimensions) {
+	public void setDimensions(Object dimensions) {
 		this.dimensions = dimensions;
 	}
 
@@ -144,7 +144,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.ecrant;
 	}
 
-	public void setEcrant(String ecrant) {
+	public void setEcrant(Object ecrant) {
 		this.ecrant = ecrant;
 	}
 
@@ -152,7 +152,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.marque;
 	}
 
-	public void setMarque(String marque) {
+	public void setMarque(Object marque) {
 		this.marque = marque;
 	}
 
@@ -160,7 +160,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.memoire_interne;
 	}
 
-	public void setMemoire_interne(String memoire_interne) {
+	public void setMemoire_interne(Object memoire_interne) {
 		this.memoire_interne = memoire_interne;
 	}
 
@@ -168,7 +168,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.micro_sd;
 	}
 
-	public void setMicro_sd(String micro_sd) {
+	public void setMicro_sd(Object micro_sd) {
 		this.micro_sd = micro_sd;
 	}
 
@@ -176,7 +176,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.nfc;
 	}
 
-	public void setNfc(String nfc) {
+	public void setNfc(Object nfc) {
 		this.nfc = nfc;
 	}
 
@@ -184,7 +184,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.os;
 	}
 
-	public void setOs(String os) {
+	public void setOs(Object os) {
 		this.os = os;
 	}
 
@@ -192,7 +192,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(Object photo) {
 		this.photo = photo;
 	}
 
@@ -208,7 +208,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.port_charge;
 	}
 
-	public void setPort_charge(String port_charge) {
+	public void setPort_charge(Object port_charge) {
 		this.port_charge = port_charge;
 	}
 
@@ -224,7 +224,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.ram;
 	}
 
-	public void setRam(String ram) {
+	public void setRam(Object ram) {
 		this.ram = ram;
 	}
 
@@ -232,7 +232,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.recharge_rapide;
 	}
 
-	public void setRecharge_rapide(String recharge_rapide) {
+	public void setRecharge_rapide(Object recharge_rapide) {
 		this.recharge_rapide = recharge_rapide;
 	}
 
@@ -240,7 +240,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.recharge_sansfil;
 	}
 
-	public void setRecharge_sansfil(String recharge_sansfil) {
+	public void setRecharge_sansfil(Object recharge_sansfil) {
 		this.recharge_sansfil = recharge_sansfil;
 	}
 
@@ -248,7 +248,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.resistance_eau;
 	}
 
-	public void setResistance_eau(String resistance_eau) {
+	public void setResistance_eau(Object resistance_eau) {
 		this.resistance_eau = resistance_eau;
 	}
 
@@ -256,7 +256,7 @@ public class FicheTechnique_Mobile implements Serializable {
 		return this.soc;
 	}
 
-	public void setSoc(String soc) {
+	public void setSoc(Object soc) {
 		this.soc = soc;
 	}
 

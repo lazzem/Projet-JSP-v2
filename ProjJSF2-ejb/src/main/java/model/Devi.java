@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -22,10 +21,13 @@ public class Devi implements Serializable {
 	private int idDevis;
 
 	@Column(name="DateCommande")
-	private Date dateCommande;
+	private Timestamp dateCommande;
+
+	@Column(name="DateDevis")
+	private Timestamp dateDevis;
 
 	@Column(name="Description")
-	private String description;
+	private Object description;
 
 	@Column(name="IdUser")
 	private int idUser;
@@ -34,7 +36,12 @@ public class Devi implements Serializable {
 	private float prixTotal;
 
 	@Column(name="Status")
-	private String status;
+	private Object status;
+
+	//bi-directional many-to-one association to Produit
+	@ManyToOne
+	@JoinColumn(name="IdProduit")
+	private Produit produit;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -52,19 +59,27 @@ public class Devi implements Serializable {
 		this.idDevis = idDevis;
 	}
 
-	public Date getDateCommande() {
+	public Timestamp getDateCommande() {
 		return this.dateCommande;
 	}
 
-	public void setDateCommande(Date dateCommande) {
+	public void setDateCommande(Timestamp dateCommande) {
 		this.dateCommande = dateCommande;
 	}
 
-	public String getDescription() {
+	public Timestamp getDateDevis() {
+		return this.dateDevis;
+	}
+
+	public void setDateDevis(Timestamp dateDevis) {
+		this.dateDevis = dateDevis;
+	}
+
+	public Object getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(Object description) {
 		this.description = description;
 	}
 
@@ -84,12 +99,20 @@ public class Devi implements Serializable {
 		this.prixTotal = prixTotal;
 	}
 
-	public String getStatus() {
+	public Object getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Object status) {
 		this.status = status;
+	}
+
+	public Produit getProduit() {
+		return this.produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
 	}
 
 	public User getUser() {

@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 
@@ -23,29 +22,29 @@ public class Pack implements Serializable {
 	private int idPack;
 
 	@Column(name="DateDebut")
-	private Date dateDebut;
+	private Timestamp dateDebut;
 
 	@Column(name="DateFin")
-	private Date dateFin;
+	private Timestamp dateFin;
 
 	@Column(name="Description")
-	private String description;
+	private Object description;
 
 	@Column(name="IdProduit")
 	private int idProduit;
 
 	@Column(name="Image")
-	private String image;
+	private Object image;
 
 	@Column(name="Prix")
 	private float prix;
 
 	@Column(name="Titre")
-	private String titre;
+	private Object titre;
 
-	//bi-directional many-to-many association to Produit
-	@ManyToMany(mappedBy="packs")
-	private List<Produit> produits;
+	//bi-directional many-to-one association to PacksProduit
+	@OneToMany(mappedBy="pack")
+	private List<PacksProduit> packsProduits;
 
 	public Pack() {
 	}
@@ -58,19 +57,19 @@ public class Pack implements Serializable {
 		this.idPack = idPack;
 	}
 
-	public Date getDateDebut() {
+	public Timestamp getDateDebut() {
 		return this.dateDebut;
 	}
 
-	public void setDateDebut(Date dateDebut) {
+	public void setDateDebut(Timestamp dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public Date getDateFin() {
+	public Timestamp getDateFin() {
 		return this.dateFin;
 	}
 
-	public void setDateFin(Date dateFin) {
+	public void setDateFin(Timestamp dateFin) {
 		this.dateFin = dateFin;
 	}
 
@@ -78,7 +77,7 @@ public class Pack implements Serializable {
 		return this.description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(Object description) {
 		this.description = description;
 	}
 
@@ -94,7 +93,7 @@ public class Pack implements Serializable {
 		return this.image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(Object image) {
 		this.image = image;
 	}
 
@@ -110,16 +109,30 @@ public class Pack implements Serializable {
 		return this.titre;
 	}
 
-	public void setTitre(String titre) {
+	public void setTitre(Object titre) {
 		this.titre = titre;
 	}
 
-	public List<Produit> getProduits() {
-		return this.produits;
+	public List<PacksProduit> getPacksProduits() {
+		return this.packsProduits;
 	}
 
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
+	public void setPacksProduits(List<PacksProduit> packsProduits) {
+		this.packsProduits = packsProduits;
+	}
+
+	public PacksProduit addPacksProduit(PacksProduit packsProduit) {
+		getPacksProduits().add(packsProduit);
+		packsProduit.setPack(this);
+
+		return packsProduit;
+	}
+
+	public PacksProduit removePacksProduit(PacksProduit packsProduit) {
+		getPacksProduits().remove(packsProduit);
+		packsProduit.setPack(null);
+
+		return packsProduit;
 	}
 
 }

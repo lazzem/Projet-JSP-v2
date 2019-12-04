@@ -52,9 +52,9 @@ public class Boutique implements Serializable {
 	@JoinColumn(name="Id_ville")
 	private Ville ville;
 
-	//bi-directional many-to-many association to Produit
-	@ManyToMany(mappedBy="boutiques")
-	private List<Produit> produits;
+	//bi-directional many-to-one association to Stock
+	@OneToMany(mappedBy="boutique")
+	private List<Stock> stocks;
 
 	public Boutique() {
 	}
@@ -147,12 +147,26 @@ public class Boutique implements Serializable {
 		this.ville = ville;
 	}
 
-	public List<Produit> getProduits() {
-		return this.produits;
+	public List<Stock> getStocks() {
+		return this.stocks;
 	}
 
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
+	public void setStocks(List<Stock> stocks) {
+		this.stocks = stocks;
+	}
+
+	public Stock addStock(Stock stock) {
+		getStocks().add(stock);
+		stock.setBoutique(this);
+
+		return stock;
+	}
+
+	public Stock removeStock(Stock stock) {
+		getStocks().remove(stock);
+		stock.setBoutique(null);
+
+		return stock;
 	}
 
 }

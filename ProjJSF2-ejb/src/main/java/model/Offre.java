@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -22,22 +21,22 @@ public class Offre implements Serializable {
 	private int idOffer;
 
 	@Column(name="DateDebut")
-	private Date dateDebut;
+	private Timestamp dateDebut;
 
 	@Column(name="DateFin")
-	private Date dateFin;
+	private Timestamp dateFin;
 
 	@Column(name="Description")
-	private String description;
+	private Object description;
 
 	@Column(name="IdProduit")
 	private int idProduit;
 
 	@Column(name="Image")
-	private String image;
+	private Object image;
 
 	@Column(name="Titee")
-	private String titee;
+	private Object titee;
 
 	//bi-directional many-to-one association to Produit
 	@ManyToOne
@@ -55,7 +54,7 @@ public class Offre implements Serializable {
 		this.idOffer = idOffer;
 	}
 
-	public Date getDateDebut() {
+	public Timestamp getDateDebut() {
 		return this.dateDebut;
 	}
 
@@ -63,7 +62,7 @@ public class Offre implements Serializable {
 		this.dateDebut = dateDebut;
 	}
 
-	public Date getDateFin() {
+	public Timestamp getDateFin() {
 		return this.dateFin;
 	}
 
@@ -75,7 +74,7 @@ public class Offre implements Serializable {
 		return this.description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(Object description) {
 		this.description = description;
 	}
 
@@ -91,7 +90,7 @@ public class Offre implements Serializable {
 		return this.image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(Object image) {
 		this.image = image;
 	}
 
@@ -99,7 +98,7 @@ public class Offre implements Serializable {
 		return this.titee;
 	}
 
-	public void setTitee(String titee) {
+	public void setTitee(Object titee) {
 		this.titee = titee;
 	}
 

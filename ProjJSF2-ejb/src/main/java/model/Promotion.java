@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 /**
@@ -22,7 +21,7 @@ public class Promotion implements Serializable {
 	private int idPromotion;
 
 	@Column(name="DateFin")
-	private Date dateFin;
+	private Timestamp dateFin;
 
 	@Column(name="IdProduit")
 	private int idProduit;
@@ -49,7 +48,7 @@ public class Promotion implements Serializable {
 		this.idPromotion = idPromotion;
 	}
 
-	public Date getDateFin() {
+	public Timestamp getDateFin() {
 		return this.dateFin;
 	}
 

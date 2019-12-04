@@ -21,7 +21,7 @@ public class TypeRec implements Serializable {
 	private int id_type;
 
 	@Column(name="type_nom")
-	private String typeNom;
+	private Object typeNom;
 
 	//bi-directional many-to-one association to Complaint
 	@OneToMany(mappedBy="typeRec")
@@ -42,7 +42,7 @@ public class TypeRec implements Serializable {
 		return this.typeNom;
 	}
 
-	public void setTypeNom(String typeNom) {
+	public void setTypeNom(Object typeNom) {
 		this.typeNom = typeNom;
 	}
 
