@@ -54,7 +54,7 @@ import services.EmployeServiceAuthentificationRemote;
 	@Override
 	public User getEmployeAuthentificationByEmailAndPassword(String login, String password) {
 		TypedQuery<User> query = 
-				em.createQuery("select e from User e where e.UserName=:login AND e.Password=:password", User.class);
+				em.createQuery("select e from User e where e.userName=:login AND e.password=:password", User.class);
 		query.setParameter("login", login);
 		query.setParameter("password", password);
 		User employe = null;

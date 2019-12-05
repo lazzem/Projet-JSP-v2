@@ -26,11 +26,16 @@ public class LoginBean implements Serializable {
 	public String doLogin() {
 		String navigateTo = "null";
 		employe = employeServiceAuthentification.getEmployeAuthentificationByEmailAndPassword(login, password);
-		if (employe != null && employe.getRole().equals("ADMINISTRATEUR")) {
-			navigateTo = "/Template/Back/Pages/GestionUser?faces-redirect=true";
+		if (employe != null ) {
+			navigateTo = "/Template/Back/Pages/User/IndexUser?faces-redirect=true";
+			System.out.println("mriguil");
 			loggedIn = true;
 		} else {
+			navigateTo = "/Template/Back/Pages/User/IndexUser?faces-redirect=true";
+			System.out.println("mriguil");
+			loggedIn = true;
 			FacesContext.getCurrentInstance().addMessage("form:btn", new FacesMessage("Failed to login"));
+			System.out.println("mich mriguil");
 		}
 		return navigateTo;
 	}
