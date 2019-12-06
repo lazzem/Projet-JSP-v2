@@ -53,9 +53,7 @@ public class UserBean  implements Serializable {
 
 	public void updateUser(int IdUser) {
 		// postService.updatePost(new Post(postIdToBeUpdated, content,hashtag,type));
-		UserService.modifierUser(new User( birthDate,  cin,  confirmPassword,  email,  gender,  isActive,
-				 lastName,  name,  password,  phone,  picture,  role,  signUpDate,
-				 userName),IdUser);
+
 	}
 	
 	public void removeUser(int IdUser) {

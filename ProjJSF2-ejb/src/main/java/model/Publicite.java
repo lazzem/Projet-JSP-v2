@@ -87,4 +87,15 @@ public class Publicite implements Serializable {
 		this.produit = produit;
 	}
 
+	public Publicite(int idPublicite, String description, int idProduct, String image, String titre, Produit produit) {
+		super();
+		this.idPublicite = idPublicite;
+		this.description = description;
+		this.idProduct = idProduct;
+		this.image = image;
+		this.titre = titre;
+		this.produit = produit;
+	}
+	
+
 }

@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
 
-</body>
-</html>
+	<ui:define name="content">
+
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					
+					<tr>
+						<td><h:outputText value="titre"></h:outputText></td>
+						<td><h:inputText value="#{publiciteBean.titre}"></h:inputText></td>
+					</tr>
+				
+					
+					
+					
+					
+				
+				
+					<tr>
+						<td colspan="2"><h:commandLink value="Ajouter Employé"
+								action="#{publiciteBean.addpublicite()}" /></td>
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>
