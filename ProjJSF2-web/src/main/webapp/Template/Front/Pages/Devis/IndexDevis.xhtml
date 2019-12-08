@@ -4,6 +4,8 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/Template/Front/HomeFront.xhtml">
+
+	<!-- 
 	<ui:define name="content">
 		<h:panelGroup columns="2">
 			<h:form>
@@ -45,5 +47,114 @@
 				</table>
 			</h:form>
 		</h:panelGroup>
+	</ui:define>
+	-->
+	<ui:define name="content">
+		<div class="super_container">
+
+			<div class="cart_container">
+
+				<div class="container">
+	
+	
+	
+	
+					<div class="row">
+
+						<div class="col">
+
+							<div class="cart_title">your devis</div>
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col">
+
+							<div
+								class="cart_bar d-flex flex-row align-items-center justify-content-start">
+
+								<div class="cart_bar_title_name">Product</div>
+
+								<div class="cart_bar_title_content ml-auto">
+
+									<div
+										class="cart_bar_title_content_inner d-flex flex-row align-items-center justify-content-end">
+
+										<div class="cart_bar_title_price">Price</div>
+
+										<div class="cart_bar_title_quantity">Status</div>
+										
+										<div class="cart_bar_title_total">Action</div>
+
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+<h:form>
+<ui:repeat value="#{devisBean.allDevis}" var="a">
+					<div class="row">
+
+						<div class="col">
+
+							<div class="cart_products">
+
+								<ul>
+
+									<li
+										class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+										<!-- Product Image -->
+
+										<div class="cart_product_image">
+											<img src="#{request.contextPath}/Template/Front/images/cart_product_1.jpg" alt="" />
+										</div> <!-- Product Name -->
+
+										<div class="cart_product_name">
+											#{a.produit.nom}
+										</div>
+
+										<div class="cart_product_info ml-auto">
+
+											<div
+												class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
+												<!-- Product Price -->
+
+												
+												<div class="cart_bar_title_price">$ #{a.prixTotal}</div>
+
+										<div class="cart_bar_title_quantity">#{a.status}</div>
+										
+										<div class="cart_bar_title_total" ><h:commandButton id="btn" value="Delete" class="button_clear cart_button"
+										action="#{devisBean.deleteDevis(a.idDevis)}" /></div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					</ui:repeat>
+</h:form>
+					<div class="row">
+
+						<div class="col">
+
+							<div
+								class="cart_control_bar d-flex flex-md-row flex-column align-items-start justify-content-start">
+								
+								<button class="button_update cart_button_2 ml-md-auto">continue
+									shopping</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+		
 	</ui:define>
 </ui:composition>
