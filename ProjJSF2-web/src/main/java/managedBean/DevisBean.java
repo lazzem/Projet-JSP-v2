@@ -1,6 +1,8 @@
 package managedBean;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -8,8 +10,11 @@ import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import interfaceImp.CommandeServiceImp;
 import interfaceImp.DevisServiceImp;
 import interfaceImp.ProduitServiceImp;
+import interfaceImp.UserServiceImp;
+import model.Commande;
 import model.Devi;
 import model.Produit;
 import model.User;
@@ -31,30 +36,60 @@ public class DevisBean implements Serializable{
 	private int idProduit;
 	private List<Devi> ListDevis;
 	private List<Devi> ListDevisUser;
-	private Produit p;
+	private Produit Produit;
 	
+	
+	private LoginBean userCo;
 	@EJB
     private DevisServiceImp service;
 	@EJB
     private ProduitServiceImp serviceProd;
+	@EJB
+	private CommandeServiceImp serviceCommande;
+	@EJB
+	private UserServiceImp serviceUser;
 	
 	public List<Devi> getAllDevis() {
 		ListDevis = service.getDevis();
+		System.out.println(ListDevis.toString());
 		return ListDevis;
 	}
 	
-	public Produit getProdId(int id) {	
-		p=serviceProd.getProdId(id);
-		return p;
-	}
 	
 	public List<Devi> getDevisUser(int id) {
 		ListDevisUser = service.getDevisUser(id);
 		return ListDevisUser;
 	}
 	
+	public void traiterBack(Devi d) {
+		List<Commande> LsC = serviceCommande.getCommande();
+		float AchatTotal=0;
+		float Remise=0;
+		int DiffDate;
+		//Traitement pour date
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+		Date dateCourante = new Date();
+	    System.out.println(format.format(dateCourante));
+	    Date dateInscrit = serviceUser.getUserById(1).getBirthDate();
+	    int nbrMoisdateInscrit = dateInscrit.getMonth()+dateInscrit.getYear();
+	    int nbrMoisdateCourante = dateCourante.getMonth()+dateCourante.getYear();
+	    DiffDate = nbrMoisdateCourante-nbrMoisdateInscrit;
+		for (int i=0;i<LsC.size();i++) {
+			if(LsC.get(i).getUser().getUserID()==1)
+			AchatTotal=AchatTotal+LsC.get(i).getPrixTotal();
+		}
+		if (AchatTotal==0) {
+			service.traiterDevis(new Devi(d.getIdDevis(),"Traiter avec remise pour ancienneté",1,d.getPrixTotal()-DiffDate*10,"Traiter et envoyé",d.getProduit()));
+		}
+		else
+		{
+			Remise = AchatTotal/100;
+			service.traiterDevis(new Devi(d.getIdDevis(),"Traiter avec remise total",1,d.getPrixTotal()-Remise/100-DiffDate/100,"Traiter",d.getProduit()));
+		}
+	}
+	
 	public  void addDevis(Produit Pr) {
-		//service.ajouterDevis(new Devi("ss",2,0,"En attente",Pr));
+		service.ajouterDevis(new Devi("ss",2,Pr.getPrice(),"En attente",Pr));
 	}
 	
 	public void deleteDevis(int id) {
@@ -69,13 +104,12 @@ public class DevisBean implements Serializable{
 		return idDevis;
 	}
 
-	public Produit getP() {
-		return p;
-	}
-	
-	public void setP(Produit p) {
-		this.p = p;
-	}
+public Produit getProduit() {
+	return Produit;
+}
+public void setProduit(Produit produit) {
+	Produit = produit;
+}
 	
 	public void setIdDevis(int idDevis) {
 		this.idDevis = idDevis;

@@ -31,19 +31,24 @@ public class UserServiceImp implements UserServiceRemote {
 	}
 
 	@Override
-	public void modifierUser(User u, int Id) {
-		User us = em.find(User.class, Id); 
-		us.setName(u.getName());
-		us.setUserName(u.getUserName());
-		us.setLastName(u.getLastName());
-		us.setCin(u.getCin());
-
+	public void modifierUser(User u) {
+		em.merge(u);
 	}
 
 	@Override
 	public List<User> getUsers() {
 		List<User> ListUser = em.createQuery("Select e from User e", User.class).getResultList();
 		return ListUser;
+	}
+	
+	public User getUserById(int userID) {
+		TypedQuery<User> query = 
+				em.createQuery("select e from User e where e.userID=:userID", User.class);
+		query.setParameter("userID", userID);
+		User employe = null;
+		try { employe = query.getSingleResult(); }
+		catch (Exception e) { System.out.println("Erreur : " + e); }
+		return employe;
 	}
 
 }

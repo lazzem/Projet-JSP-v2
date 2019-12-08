@@ -11,6 +11,7 @@ import model.Produit;
 public interface DevisServiceRemote {
 	public void ajouterDevis(Devi d);
 	public void modifierDevis(Devi d,int Id);
+	public void traiterDevis(Devi d);
 	public void supprimerDevis(int Id);
 	public List<Devi> getDevis();
 	public List<Devi> getDevisUser(int Id);

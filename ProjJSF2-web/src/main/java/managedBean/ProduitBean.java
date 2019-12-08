@@ -27,6 +27,7 @@ public class ProduitBean implements Serializable {
 	private float price;
 	private int quantitee;
 	private Produit p;
+	private List<Produit> lp;
 	
 
 
@@ -42,9 +43,10 @@ public class ProduitBean implements Serializable {
 		return ListProduits;
 	}
 	
-	public void getProdId(int id) {	
-		p=service.getProdId(id);
-		//return p;
+	public List<Produit> getProdId(int id) {	
+		lp=null;
+		lp.add(service.getProdId(id));
+		return lp;
 	}
  
     public void setService(ProduitServiceImp service) {
@@ -154,5 +156,11 @@ public class ProduitBean implements Serializable {
 		ListProduits = listProduits;
 	}
     
+    public List<Produit> getLp() {
+		return lp;
+	}
     
+    public void setLp(List<Produit> lp) {
+		this.lp = lp;
+	}
 }

@@ -1,0 +1,153 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">
+		
+	
+	  
+    <h:panelGroup columns="2">
+  		<h:form>
+ 			 <table class="table table-bordered table-hover">
+				<h:panelGroup columns="2">
+					<h:form>
+						<h:dataTable value="#{devisBean.allDevis}" var="a" border="1" >
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product name" />
+									</f:facet>
+									<h:outputText value="#{a.produit.nom}"/>
+								</h:column>
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product price" />
+									</f:facet>
+									<h:outputText value="#{a.produit.price}"/>
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Status" />
+									</f:facet>
+									<h:outputText value="#{a.status}"/>
+								</h:column>
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Prix Traité" />
+									</f:facet>
+									<h:outputText value="#{a.prixTotal}"/>
+								</h:column>
+								
+								<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Traiter" 
+					action="#{devisBean.traiterBack(a)}" />
+				<h:message for="btn" /></h:column>
+
+							</h:dataTable>
+					</h:form>
+				</h:panelGroup>
+			</table>
+		</h:form>
+	</h:panelGroup>
+  
+  
+  
+  
+		<!-- Try mizyena -->
+		<!-- 
+
+		<section id="main-content">
+			<section class="wrapper">
+				<br />
+
+				<p>Create New</p>
+				<br />
+
+				<div class="row">
+
+
+					<table id="example1" class="table table-bordered table-hover">
+						<thead>
+
+							<tr>
+
+								<th>UserName</th>
+
+								<th>LastName</th>
+
+								<th>Name</th>
+
+								<th>CIN</th>
+
+								<th>Phone</th>
+
+								<th>SignUpDate</th>
+
+								<th>Picture</th>
+
+								<th>Password</th>
+
+								<th>ConfirmPassword</th>
+
+								<th>Email</th>
+
+								<th>BirthDate</th>
+
+								<th>IsActive</th>
+
+								<th>Role</th>
+
+								<th>Actions</th>
+							</tr>
+						</thead>
+
+						<tbody>
+						<h:dataTable value="#{userBean.allUsers}" var="listUser" border="1">
+							<tr>
+
+								<td><h:outputText value="#{listUser.role}" /></td>
+
+								<td>LastName</td>
+
+								<td>Name</td>
+
+								<td>CIN</td>
+
+								<td>Phone</td>
+
+								<td>SignUpDate</td>
+
+								<td>Picture</td>
+
+								<td>Password</td>
+
+								<td>ConfirmPassword</td>
+
+								<td>Email</td>
+
+								<td>BirthDate</td>
+
+								<td>IsActive</td>
+
+								<td>Role</td>
+
+								<td>Edit | Details | Delete</td>
+							</tr>
+							</h:dataTable>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</section>
+
+
+
+ -->
+
+	</ui:define>
+</ui:composition>

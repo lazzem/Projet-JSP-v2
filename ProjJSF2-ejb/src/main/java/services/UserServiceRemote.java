@@ -9,7 +9,7 @@ import model.User;
 @Remote
 public interface UserServiceRemote {
 	public void ajouterUser(User u);
-	public void modifierUser(User u,int Id);
+	public void modifierUser(User u);
 	public void supprimerUser(int Id);
 	public List<User> getUsers();
 

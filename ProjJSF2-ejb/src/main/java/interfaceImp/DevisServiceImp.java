@@ -58,4 +58,9 @@ public class DevisServiceImp implements DevisServiceRemote {
 		return pr;
 	}
 
+	@Override
+	public void traiterDevis(Devi d) {
+		em.merge(d);
+	}
+
 }

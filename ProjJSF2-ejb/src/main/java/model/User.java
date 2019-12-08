@@ -313,6 +313,29 @@ public class User implements Serializable {
 		this.userName = userName;
 	}
 	
+	//Modif
+	
+	public User(int userID,Date birthDate, int cin, String confirmPassword, String email, int gender, boolean isActive,
+			String lastName, String name, String password, int phone, String picture, String role, Date signUpDate,
+			String userName) {
+		super();
+		this.userID=userID;
+		this.birthDate = birthDate;
+		this.cin = cin;
+		this.confirmPassword = confirmPassword;
+		this.email = email;
+		this.gender = gender;
+		this.isActive = isActive;
+		this.lastName = lastName;
+		this.name = name;
+		this.password = password;
+		this.phone = phone;
+		this.picture = picture;
+		this.role = role;
+		this.signUpDate = signUpDate;
+		this.userName = userName;
+	}
+	
 	public User(int cin, String confirmPassword, String email, int gender, boolean isActive,
 			String lastName, String name, String password, int phone, String picture, String role,
 			String userName) {
@@ -332,5 +355,7 @@ public class User implements Serializable {
 	}
 	
 	
+	
+
 
 }

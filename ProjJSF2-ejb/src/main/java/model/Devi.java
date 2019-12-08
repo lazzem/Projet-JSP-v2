@@ -36,6 +36,9 @@ public class Devi implements Serializable {
 	@Column(name="Status")
 	private String status;
 
+	@ManyToOne
+	@JoinColumn(name="IdProduit")
+	private Produit produit;
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="Users_UserID")
@@ -99,5 +102,44 @@ public class Devi implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public Produit getProduit() {
+		return produit;
+	}
+	
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+	public Devi(String description, int idUser, float prixTotal, String status, Produit produit) {
+		super();
+		//this.dateCommande = dateCommande;
+		this.description = description;
+		this.idUser = idUser;
+		this.prixTotal = prixTotal;
+		this.status = status;
+		this.produit = produit;
+	}
+	
+	
+
+	public Devi(int idDevis, String description, int idUser, float prixTotal, String status, Produit produit) {
+		super();
+		this.idDevis = idDevis;
+		this.description = description;
+		this.idUser = idUser;
+		this.prixTotal = prixTotal;
+		this.status = status;
+		this.produit = produit;
+	}
+
+	@Override
+	public String toString() {
+		return "Devi [idDevis=" + idDevis + ", dateCommande=" + dateCommande + ", description=" + description
+				+ ", idUser=" + idUser + ", prixTotal=" + prixTotal + ", status=" + status + ", produit=" + produit
+				+ "]";
+	}
+	
+	
 
 }
