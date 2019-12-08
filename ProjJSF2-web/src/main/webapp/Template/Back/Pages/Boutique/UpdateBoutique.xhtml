@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">	    
+    <h:panelGroup columns="2">
+  		<h:form>
+ 			 <table>
+				<h:panelGroup columns="2">
+					<h:form>
+                        <table>
+                        			
+                          <tr>
+                        							
+							<td><h:outputText value="Nom"></h:outputText></td>
+							<td><h:inputText value="#{BoutiqueBean.nom}"></h:inputText></td>
+					      </tr>
+					      
+					      <tr>
+                        							
+							<td><h:outputText value="Email"></h:outputText></td>
+							<td><h:inputText value="#{BoutiqueBean.email}"></h:inputText></td>
+					      </tr>
+					      
+					      <tr>
+                        							
+							<td><h:outputText value="Phone"></h:outputText></td>
+							<td><h:inputText value="#{BoutiqueBean.phone}"></h:inputText></td>
+					      </tr>
+					      
+					      <tr>
+                        							
+							<td><h:outputText value="Service"></h:outputText></td>
+							<td><h:inputText value="#{BoutiqueBean.service}"></h:inputText></td>
+					      </tr>
+					      
+					      <tr>
+                        							
+							<td><h:outputText value="Zone"></h:outputText></td>
+							<td><h:inputText value="#{BoutiqueBean.zone}"></h:inputText></td>
+					      </tr>
+							
+							<tr><h:commandButton
+							     action="#{BoutiqueBean.mettreAjurBoutique()}" 
+							     value="Update"/>
+						    </tr>	     
+				
+					</table>
+					</h:form>
+				</h:panelGroup>
+			</table>
+		</h:form>
+	</h:panelGroup>
+   </ui:define> 
+</ui:composition>
