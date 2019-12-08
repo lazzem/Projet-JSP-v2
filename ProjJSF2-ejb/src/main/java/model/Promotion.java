@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 
 /**
@@ -21,7 +21,7 @@ public class Promotion implements Serializable {
 	private int idPromotion;
 
 	@Column(name="DateFin")
-	private Timestamp dateFin;
+	private Date dateFin;
 
 	@Column(name="IdProduit")
 	private int idProduit;
@@ -48,11 +48,11 @@ public class Promotion implements Serializable {
 		this.idPromotion = idPromotion;
 	}
 
-	public Timestamp getDateFin() {
+	public Date getDateFin() {
 		return this.dateFin;
 	}
 
-	public void setDateFin(Timestamp dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 

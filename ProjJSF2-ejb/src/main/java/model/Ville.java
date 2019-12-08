@@ -21,7 +21,7 @@ public class Ville implements Serializable {
 	private int id_ville;
 
 	@Column(name="Ville_nom")
-	private Object ville_nom;
+	private String ville_nom;
 
 	//bi-directional many-to-one association to Boutique
 	@OneToMany(mappedBy="ville")
@@ -38,11 +38,11 @@ public class Ville implements Serializable {
 		this.id_ville = id_ville;
 	}
 
-	public Object getVille_nom() {
+	public String getVille_nom() {
 		return this.ville_nom;
 	}
 
-	public void setVille_nom(Object ville_nom) {
+	public void setVille_nom(String ville_nom) {
 		this.ville_nom = ville_nom;
 	}
 

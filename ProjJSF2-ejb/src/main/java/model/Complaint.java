@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 
 /**
@@ -21,28 +21,28 @@ public class Complaint implements Serializable {
 	private int complaintID;
 
 	@Column(name="Clossing_date")
-	private Object clossing_date;
+	private String clossing_date;
 
 	@Column(name="Creation_date")
-	private Timestamp creation_date;
+	private Date creation_date;
 
 	@Column(name="Description")
-	private Object description;
+	private String description;
 
 	@Column(name="Etat")
 	private boolean etat;
 
 	@Column(name="Image")
-	private Object image;
+	private String image;
 
 	@Column(name="Objet")
-	private Object objet;
+	private String objet;
 
 	@Column(name="Processing_date")
-	private Object processing_date;
+	private String processing_date;
 
 	@Column(name="Responsable")
-	private Object responsable;
+	private String responsable;
 
 	//bi-directional many-to-one association to TypeRec
 	@ManyToOne
@@ -60,27 +60,27 @@ public class Complaint implements Serializable {
 		this.complaintID = complaintID;
 	}
 
-	public Object getClossing_date() {
+	public String getClossing_date() {
 		return this.clossing_date;
 	}
 
-	public void setClossing_date(Object clossing_date) {
+	public void setClossing_date(String clossing_date) {
 		this.clossing_date = clossing_date;
 	}
 
-	public Timestamp getCreation_date() {
+	public Date getCreation_date() {
 		return this.creation_date;
 	}
 
-	public void setCreation_date(Timestamp creation_date) {
+	public void setCreation_date(Date creation_date) {
 		this.creation_date = creation_date;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -92,35 +92,35 @@ public class Complaint implements Serializable {
 		this.etat = etat;
 	}
 
-	public Object getImage() {
+	public String getImage() {
 		return this.image;
 	}
 
-	public void setImage(Object image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
-	public Object getObjet() {
+	public String getObjet() {
 		return this.objet;
 	}
 
-	public void setObjet(Object objet) {
+	public void setObjet(String objet) {
 		this.objet = objet;
 	}
 
-	public Object getProcessing_date() {
+	public String getProcessing_date() {
 		return this.processing_date;
 	}
 
-	public void setProcessing_date(Object processing_date) {
+	public void setProcessing_date(String processing_date) {
 		this.processing_date = processing_date;
 	}
 
-	public Object getResponsable() {
+	public String getResponsable() {
 		return this.responsable;
 	}
 
-	public void setResponsable(Object responsable) {
+	public void setResponsable(String responsable) {
 		this.responsable = responsable;
 	}
 

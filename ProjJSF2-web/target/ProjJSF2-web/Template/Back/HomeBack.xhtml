@@ -261,7 +261,10 @@
 
 					<ul class="nav pull-right top-menu">
 
-						<li><a class="logout" href="login.html">Logout</a></li>
+						<li>
+						<a class="logout" href="#{loginBean.doLogout()}" >Logout</a> 
+							
+						</li>
 					</ul>
 				</div>
 			</header>
@@ -283,12 +286,20 @@
 								class="img-circle" width="80" alt="" /></a>
 						</p>
 
-						<h5 class="centered">Sam Soffes</h5>
+						<h5 class="centered">#{loginBean.employe.login}</h5>
 
-						<li class="sub-menu"><a class="active" href="index.html">
-								<i class="fa fa-dashboard" /> <span>Dashboard</span>
-						</a></li>
-
+						<li class="sub-menu">
+						<a class="active" href="index.html">
+								<i class="fa fa-dashboard" /> 
+								<span>Dashboard</span>
+						</a>
+						</li>
+						<li class="sub-menu">
+						<a class="active" href="index.html">
+								<i class="fa fa-dashboard" /> 
+								<span>Users</span>
+						</a>
+						</li>
 
 					</ul>
 					<!-- sidebar menu end-->

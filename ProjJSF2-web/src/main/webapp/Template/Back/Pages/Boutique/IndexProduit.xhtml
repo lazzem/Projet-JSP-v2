@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">	    
+    <h:panelGroup columns="2">
+  		<h:form>
+ 			 <table>
+				<h:panelGroup columns="2">
+					<h:form>
+						<h:dataTable value="#{ProduitBean.allProduits}" var="listProduit" border="1">
+							
+							<h:column><f:facet name="header"><h:outputText value="id_produit" /></f:facet>
+							<h:outputText value="#{listProduit.id_produit}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="description" /></f:facet>
+							<h:outputText value="#{listProduit.description}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="image" /></f:facet>
+							<h:outputText value="#{listProduit.image}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="libelle" /></f:facet>
+							<h:outputText value="#{listProduit.libelle}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="nom" /></f:facet>
+							<h:outputText value="#{listProduit.nom}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="prix" /></f:facet>
+							<h:outputText value="#{listProduit.prix}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="quantitee" /></f:facet>
+							<h:outputText value="#{listProduit.quantitee}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Delete" 
+					action="#{ProduitBean.removeProduit(listProduit.id_produit)}" />
+					
+				<h:message for="btn" /></h:column>
+						</h:dataTable>
+					</h:form>
+				</h:panelGroup>
+			</table>
+		</h:form>
+	</h:panelGroup>
+   </ui:define> 
+</ui:composition>

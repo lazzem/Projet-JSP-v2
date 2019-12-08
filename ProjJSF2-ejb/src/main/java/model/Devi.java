@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 
 /**
@@ -21,13 +21,13 @@ public class Devi implements Serializable {
 	private int idDevis;
 
 	@Column(name="DateCommande")
-	private Timestamp dateCommande;
+	private Date dateCommande;
 
 	@Column(name="DateDevis")
-	private Timestamp dateDevis;
+	private Date dateDevis;
 
 	@Column(name="Description")
-	private Object description;
+	private String description;
 
 	@Column(name="IdUser")
 	private int idUser;
@@ -36,7 +36,7 @@ public class Devi implements Serializable {
 	private float prixTotal;
 
 	@Column(name="Status")
-	private Object status;
+	private String status;
 
 	//bi-directional many-to-one association to Produit
 	@ManyToOne
@@ -59,27 +59,27 @@ public class Devi implements Serializable {
 		this.idDevis = idDevis;
 	}
 
-	public Timestamp getDateCommande() {
+	public Date getDateCommande() {
 		return this.dateCommande;
 	}
 
-	public void setDateCommande(Timestamp dateCommande) {
+	public void setDateCommande(Date dateCommande) {
 		this.dateCommande = dateCommande;
 	}
 
-	public Timestamp getDateDevis() {
+	public Date getDateDevis() {
 		return this.dateDevis;
 	}
 
-	public void setDateDevis(Timestamp dateDevis) {
+	public void setDateDevis(Date dateDevis) {
 		this.dateDevis = dateDevis;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -99,11 +99,11 @@ public class Devi implements Serializable {
 		this.prixTotal = prixTotal;
 	}
 
-	public Object getStatus() {
+	public String getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Object status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

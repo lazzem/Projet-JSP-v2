@@ -21,7 +21,7 @@ public class Category implements Serializable {
 	private int id_categorie;
 
 	@Column(name="Nom")
-	private Object nom;
+	private String nom;
 
 	//bi-directional many-to-one association to Produit
 	@OneToMany(mappedBy="category")
@@ -38,11 +38,11 @@ public class Category implements Serializable {
 		this.id_categorie = id_categorie;
 	}
 
-	public Object getNom() {
+	public String getNom() {
 		return this.nom;
 	}
 
-	public void setNom(Object nom) {
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
 

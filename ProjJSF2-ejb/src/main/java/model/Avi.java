@@ -1,8 +1,10 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
-import java.sql.Timestamp;
+
 
 
 /**
@@ -21,10 +23,10 @@ public class Avi implements Serializable {
 	private int idView;
 
 	@Column(name="Date")
-	private Timestamp date;
+	private Date date;
 
 	@Column(name="Description")
-	private Object description;
+	private String description;
 
 	public Avi() {
 	}
@@ -37,19 +39,19 @@ public class Avi implements Serializable {
 		this.idView = idView;
 	}
 
-	public Timestamp getDate() {
+	public Date getDate() {
 		return this.date;
 	}
 
-	public void setDate(Timestamp date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

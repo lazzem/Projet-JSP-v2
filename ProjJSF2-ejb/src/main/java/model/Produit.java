@@ -48,14 +48,27 @@ public class Produit implements Serializable {
 	//bi-directional many-to-one association to Offre
 	@OneToMany(mappedBy="produit")
 	private List<Offre> offres;
-
-	//bi-directional many-to-one association to PacksProduit
-	@OneToMany(mappedBy="produit")
-	private List<PacksProduit> packsProduits;
+//
+//	//bi-directional many-to-one association to PacksProduit
+//	@OneToMany(mappedBy="produit")
+//	private List<PacksProduit> packsProduits;
 
 	//bi-directional many-to-one association to Panier
 	@OneToMany(mappedBy="produit")
 	private List<Panier> paniers;
+
+	//bi-directional many-to-many association to Boutique
+	@ManyToMany
+	@JoinTable(
+		name="BoutiqueProduit"
+		, joinColumns={
+			@JoinColumn(name="Id_boutique")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="Id_produit")
+			}
+		)
+	private List<Boutique> boutiques;
 
 	//bi-directional many-to-one association to Category
 	@ManyToOne
@@ -185,27 +198,27 @@ public class Produit implements Serializable {
 		return offre;
 	}
 
-	public List<PacksProduit> getPacksProduits() {
-		return this.packsProduits;
-	}
-
-	public void setPacksProduits(List<PacksProduit> packsProduits) {
-		this.packsProduits = packsProduits;
-	}
-
-	public PacksProduit addPacksProduit(PacksProduit packsProduit) {
-		getPacksProduits().add(packsProduit);
-		packsProduit.setProduit(this);
-
-		return packsProduit;
-	}
-
-	public PacksProduit removePacksProduit(PacksProduit packsProduit) {
-		getPacksProduits().remove(packsProduit);
-		packsProduit.setProduit(null);
-
-		return packsProduit;
-	}
+//	public List<PacksProduit> getPacksProduits() {
+//		return this.packsProduits;
+//	}
+//
+//	public void setPacksProduits(List<PacksProduit> packsProduits) {
+//		this.packsProduits = packsProduits;
+//	}
+//
+//	public PacksProduit addPacksProduit(PacksProduit packsProduit) {
+//		getPacksProduits().add(packsProduit);
+//		packsProduit.setProduit(this);
+//
+//		return packsProduit;
+//	}
+//
+//	public PacksProduit removePacksProduit(PacksProduit packsProduit) {
+//		getPacksProduits().remove(packsProduit);
+//		packsProduit.setProduit(null);
+//
+//		return packsProduit;
+//	}
 
 	public List<Panier> getPaniers() {
 		return this.paniers;
@@ -227,6 +240,14 @@ public class Produit implements Serializable {
 		panier.setProduit(null);
 
 		return panier;
+	}
+
+	public List<Boutique> getBoutiques() {
+		return this.boutiques;
+	}
+
+	public void setBoutiques(List<Boutique> boutiques) {
+		this.boutiques = boutiques;
 	}
 
 	public Category getCategory() {

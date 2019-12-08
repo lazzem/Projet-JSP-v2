@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">
+
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					
+					
+					<tr>
+						  <h:selectOneMenu  value="#{stockBean.nb}" name="account" class="form-control m-b" >
+                                             
+                                              <f:selectItems  value="#{stockBean.bou}"/>
+
+                                 </h:selectOneMenu>  
+								
+					</tr>
+					
+					<tr>
+						  <h:selectOneMenu  value="#{stockBean.np}" name="account" class="form-control m-b" >
+                                             
+                                              <f:selectItems  value="#{stockBean.prod}"/>
+
+                                 </h:selectOneMenu>  
+								
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>

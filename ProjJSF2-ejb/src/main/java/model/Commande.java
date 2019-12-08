@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 
 /**
@@ -21,10 +21,10 @@ public class Commande implements Serializable {
 	private int idCommande;
 
 	@Column(name="DateCommand")
-	private Timestamp dateCommand;
+	private Date dateCommand;
 
 	@Column(name="Description")
-	private Object description;
+	private String description;
 
 	@Column(name="PrixTotal")
 	private float prixTotal;
@@ -50,19 +50,19 @@ public class Commande implements Serializable {
 		this.idCommande = idCommande;
 	}
 
-	public Timestamp getDateCommand() {
+	public Date getDateCommand() {
 		return this.dateCommand;
 	}
 
-	public void setDateCommand(Timestamp dateCommand) {
+	public void setDateCommand(Date dateCommand) {
 		this.dateCommand = dateCommand;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

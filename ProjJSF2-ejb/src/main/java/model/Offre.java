@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 
 /**
@@ -21,22 +21,22 @@ public class Offre implements Serializable {
 	private int idOffer;
 
 	@Column(name="DateDebut")
-	private Timestamp dateDebut;
+	private Date dateDebut;
 
 	@Column(name="DateFin")
-	private Timestamp dateFin;
+	private Date dateFin;
 
 	@Column(name="Description")
-	private Object description;
+	private String description;
 
 	@Column(name="IdProduit")
 	private int idProduit;
 
 	@Column(name="Image")
-	private Object image;
+	private String image;
 
 	@Column(name="Titee")
-	private Object titee;
+	private String titee;
 
 	//bi-directional many-to-one association to Produit
 	@ManyToOne
@@ -54,27 +54,27 @@ public class Offre implements Serializable {
 		this.idOffer = idOffer;
 	}
 
-	public Timestamp getDateDebut() {
+	public Date getDateDebut() {
 		return this.dateDebut;
 	}
 
-	public void setDateDebut(Timestamp dateDebut) {
+	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public Timestamp getDateFin() {
+	public Date getDateFin() {
 		return this.dateFin;
 	}
 
-	public void setDateFin(Timestamp dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -86,19 +86,19 @@ public class Offre implements Serializable {
 		this.idProduit = idProduit;
 	}
 
-	public Object getImage() {
+	public String getImage() {
 		return this.image;
 	}
 
-	public void setImage(Object image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
-	public Object getTitee() {
+	public String getTitee() {
 		return this.titee;
 	}
 
-	public void setTitee(Object titee) {
+	public void setTitee(String titee) {
 		this.titee = titee;
 	}
 
