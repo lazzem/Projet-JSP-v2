@@ -19,6 +19,7 @@ public class LoginBean implements Serializable {
 	private String password;
 	private User employe;
 	private Boolean loggedIn;
+	private String role;
 
 	@EJB
 	EmployeServiceAuthentification employeServiceAuthentification;
@@ -27,9 +28,16 @@ public class LoginBean implements Serializable {
 		String navigateTo = "null";
 		employe = employeServiceAuthentification.getEmployeAuthentificationByEmailAndPassword(login, password);
 		if (employe != null ) {
-			navigateTo = "/Template/Back/Pages/User/IndexUser?faces-redirect=true";
+			if(employe.getRole().equals("ADMINISTRATEUR")) {
+			navigateTo = "/Template/Back/Pages/HomeAdmin?faces-redirect=true";
 			System.out.println("mriguil");
 			loggedIn = true;
+			}
+			else {navigateTo = "/Template/Front/Pages/Home?faces-redirect=true";
+			System.out.println("mriguil");
+			loggedIn = true;
+			}
+				
 		} else {
 			navigateTo = "/Template/Back/Pages/User/IndexUser?faces-redirect=true";
 			System.out.println("mriguil");

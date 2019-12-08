@@ -4,32 +4,60 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/Template/Front/HomeFront.xhtml">
-<ui:define name="content">
+	<ui:define name="content">
+		<h:panelGroup columns="2">
+			<h:form>
+				<table class="table table-bordered table-hover">
+					<h:panelGroup columns="2">
+						<h:form>
+						
+							<h:dataTable value="#{produitBean.allProds}" var="a" border="1">
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product name" />
+									</f:facet>
+									<h:outputText value="#{a.nom}" />
+								</h:column>
 
-<h:panelGroup columns="2">
-  		<h:form>
- 			 <table class="table table-bordered table-hover">
-				<h:panelGroup columns="2">
-					<h:form>
-						<h:dataTable value="#{produitBean.allProds}" var="a" border="1" rows="12" paginator="true" rowsPerPageTemplate="6,12,16"
-                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                >
-							
-							<h:column ><f:facet name="header" ><h:outputText value="Product name" /></f:facet>
-							<h:outputText value="#{a.nom}" /></h:column>
-							
-							<h:column><f:facet name="header"><h:outputText value="Product price" /></f:facet>
-							<h:outputText value="#{a.price}" /></h:column>
-							
-							
-							
-						</h:dataTable>
-					</h:form>
-				</h:panelGroup>
-			</table>
-		</h:form>
-	</h:panelGroup>
-							
-			
-</ui:define>
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product price" />
+									</f:facet>
+									<h:outputText value="#{a.price}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product Quantity" />
+									</f:facet>
+									<h:outputText value="#{a.quantitee}" />
+								</h:column>
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product Libelle" />
+									</f:facet>
+									<h:outputText value="#{a.libelle}" />
+								</h:column>
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product price" />
+									</f:facet>
+									<h:outputText value="#{a.price}" />
+								</h:column>
+								
+								<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Ajouter devis" 
+					action="#{devisBean.addDevis((a.id_produit))}" />
+				<h:message for="btn" /></h:column>
+
+							</h:dataTable>
+						</h:form>
+					</h:panelGroup>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
 </ui:composition>

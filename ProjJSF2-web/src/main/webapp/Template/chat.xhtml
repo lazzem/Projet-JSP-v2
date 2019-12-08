@@ -36,6 +36,19 @@
 <link href="#{request.contextPath}/Template/Back/css/style-responsive.css" rel="stylesheet" />
 
 <script src="#{request.contextPath}/Template/Back//lib/chart-master/Chart.js"></script>
+			<script type="text/javascript">
+				var websocket = new WebSocket(
+						"ws://localhost:9081/ProjJSF2-web/chatroomServerEndPoint")
+				websocket.onmessage = function processMessage(message) {
+					var jsonData = JSON.parse(message.data);
+					if (jsonData.message != null)
+						messageTextArea.value += jsonData.message + "\n";
+				}
+				function sendMessage() {
+					websocket.send(messageText.value);
+					messageText.value = "";
+				}
+			</script>
 <!-- =======================================================
       Template Name: Dashio
       Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -320,7 +333,31 @@
 				<section class="wrapper">
 
 					<div class="row">
-						<ui:insert name="content" />
+						
+						
+						<div class="container">
+				<h:form class="form-signin">
+
+					<h2 class="form-signin-heading">
+						<span class="" aria-hidden="true"></span> Chat Room
+					</h2>
+					<br />
+					<br />
+					<textarea id="messageTextArea" readonly="readonly" rows="15"
+						cols="50" class="form-control"></textarea>
+					<br />
+					<input type="text" id="messageText" size="50" class="form-control" />
+					<br/>
+					<input type="button" value="Envoyer" onclick="sendMessage()" class="btn btn-lg btn-primary btn-block" />
+				</h:form>
+			</div>
+						
+						
+						
+						
+						
+						
+						
 					</div>
 					<!-- /row -->
 				</section>

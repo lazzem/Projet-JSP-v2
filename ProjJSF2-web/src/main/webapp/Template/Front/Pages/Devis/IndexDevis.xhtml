@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Front/HomeFront.xhtml">
+	<ui:define name="content">
+		<h:panelGroup columns="2">
+			<h:form>
+				<table class="table table-bordered table-hover">
+					<h:panelGroup columns="2">
+						<h:form>
+						
+							<h:dataTable value="#{devisBean.allDevis}" var="a" border="1">
+								
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Product name" />
+									</f:facet>
+									<h:outputText value="#{devisBean.}" />
+								</h:column>
+
+								
+								
+								<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Supprimer" 
+					action="#{devisBean.deleteDevis(a.id_produit)}" />
+				<h:message for="btn" /></h:column>
+
+							</h:dataTable>
+						</h:form>
+					</h:panelGroup>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

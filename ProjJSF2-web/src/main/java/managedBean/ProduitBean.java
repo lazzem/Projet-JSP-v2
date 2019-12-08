@@ -26,6 +26,7 @@ public class ProduitBean implements Serializable {
 	private String nom;
 	private float price;
 	private int quantitee;
+	private Produit p;
 	
 
 
@@ -39,6 +40,11 @@ public class ProduitBean implements Serializable {
  
 	public List<Produit> getListProduits() {
 		return ListProduits;
+	}
+	
+	public void getProdId(int id) {	
+		p=service.getProdId(id);
+		//return p;
 	}
  
     public void setService(ProduitServiceImp service) {
@@ -59,6 +65,13 @@ public class ProduitBean implements Serializable {
 
 	public Produit getSelectedProduit() {
 		return selectedProduit;
+	}
+	
+	public Produit getP() {
+		return p;
+	}
+	public void setP(Produit p) {
+		this.p = p;
 	}
 
 	public void setSelectedProduit(Produit selectedProduit) {
