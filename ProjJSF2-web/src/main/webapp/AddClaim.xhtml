@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">
+
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					
+					
+					
+					<tr>
+						<td><h:outputText value="lastName"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.nom}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="name"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.prenom}"></h:inputText></td>
+					</tr>
+					
+					<tr>
+						<td colspan="2"><h:commandLink value="Ajouter Employé"
+								action="#{ClaimBean.addClaim}" /></td>
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>
