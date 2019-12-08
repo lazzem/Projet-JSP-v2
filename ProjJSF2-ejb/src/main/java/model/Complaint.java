@@ -44,6 +44,8 @@ public class Complaint implements Serializable {
 	@Column(name="Responsable")
 	private String responsable;
 
+//	@Column(name="Responsable")
+//	private String responsable;
 	//bi-directional many-to-one association to TypeRec
 	@ManyToOne
 	@JoinColumn(name="Id_type")

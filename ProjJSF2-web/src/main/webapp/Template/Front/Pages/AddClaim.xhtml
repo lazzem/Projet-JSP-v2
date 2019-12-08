@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Front/HomeFront.xhtml">
+
+	<ui:define name="content">
+
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					
+					
+					
+					<tr>
+						<td><h:outputText value="title"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.title}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="description"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.description}"></h:inputText></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputText value="type"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.type}"></h:inputText></td>
+					</tr>
+					
+					<tr>
+						<td colspan="2"><h:commandLink value="ENVOYER "
+								action="#{ClaimBean.addClaim()}" /></td>
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>
