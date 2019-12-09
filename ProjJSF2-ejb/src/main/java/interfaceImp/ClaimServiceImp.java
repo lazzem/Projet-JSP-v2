@@ -80,4 +80,9 @@ public class ClaimServiceImp implements ClaimRemote{
 		return ListClaim;
 	}
 	
+	@Override
+	public void deleteClaim(int id) {
+		em.remove(em.find(Claim.class, id));
+		
+	}
 }
