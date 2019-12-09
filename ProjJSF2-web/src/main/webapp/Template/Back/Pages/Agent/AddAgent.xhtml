@@ -1,0 +1,132 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">
+<div class="row mt">
+          <div class="col-lg-12">
+		
+		<div class="form-panel">
+              <div class=" form">
+              <p:fieldset legend="Inline Calendar">
+			<h:form class="cmxform form-horizontal style-form">
+				
+					
+					<div class="form-group ">
+					
+						<h:outputText  for="nom" class="control-label col-lg-2" value="Name"></h:outputText>
+						<h:message for="ValidatorName" style="color:green"/>
+						 <div class="col-lg-10">
+					        	<h:inputText 
+					        	id="ValidatorName"
+					        	required="true"
+					        	requiredMessage="Le nom est obligatoire"
+					        	 class=" form-control"  minlength="2" value="#{AgentBean.name}"></h:inputText>
+						 </div>
+						 
+					</div>
+					
+					<div class="form-group ">
+					
+						<h:outputText  for="zone" class="control-label col-lg-2" value="Email"></h:outputText>
+						<h:message for="ValidatorEmail" style="color:red"/>
+						<div class="col-lg-10">
+						
+						    <h:inputText id="ValidatorEmail"
+						    required="true"
+						    requiredMessage="the field is required"
+						     class=" form-control"  minlength="2" value="#{AgentBean.email}">
+						     <f:validateRegex pattern=".+\@.+\..+"/>
+						     </h:inputText>
+						 </div>
+					
+					</div>
+					
+					
+					<div class="form-group ">
+					
+						<h:outputText for="service" class="control-label col-lg-2" value="Image"></h:outputText>
+						<div class="col-lg-10">
+						    <h:inputText class=" form-control" minlength="2" value="#{AgentBean.image}"></h:inputText>
+					
+				     	</div>
+					
+					</div>
+					
+					
+					<div class="form-group ">
+					
+						<h:outputText  for="phone" class="control-label col-lg-2" value="Select Start Date:"></h:outputText>
+						<div class="col-lg-10">
+						    <p:calendar id="start" value="#{AgentBean.startDate}" pattern="dd-MM-yyyy" mask="true" readonlyInput="true" maxdate="#{AgentBean.endDate}" mindate="#{now}"></p:calendar>
+						
+						</div>
+					
+					</div>
+					
+					
+					<div class="form-group ">
+					
+						 <p:outputLabel for="end" value="Select End Date:" />
+						 <div class="col-lg-10">
+      				  <p:calendar id="end" value="#{AgentBean.endDate}" pattern="dd-MM-yyyy" mask="true" disabled="#{empty AgentBean.startDate}" readonlyInput="true" mindate="#{EventManagedBean.startDate}"></p:calendar> 
+             				</div>
+					</div>
+					
+					
+					
+					
+					
+					
+					<div class="form-group ">
+					
+						<h:outputText for="email" class="control-label col-lg-2" value="Role"></h:outputText>
+						<div class="col-lg-10">
+						   <h:inputText class=" form-control"  minlength="2" value="#{AgentBean.role}"></h:inputText>
+					</div>
+					
+					</div>
+					
+					
+					<div class="form-group ">
+					
+						<h:outputText for="email" class="control-label col-lg-2" value="Salaire"></h:outputText>
+						<div class="col-lg-10">
+						<h:message for="ValidatorSalaire" style="color:red"/>
+						   <h:inputText id="ValidatorSalaire"
+						   required="true"
+						   requiredMessage="the contract must specify the salary"
+						   validatorMessage="The salaire is between 700dt and 1500dt"
+						    class=" form-control"  minlength="2" value="#{AgentBean.salary}">
+						    <f:validateDoubleRange minimum="700" maximum="1500" for="ValidatorSalaire"/>
+						    </h:inputText>
+					</div>
+					
+					</div>
+					
+					<div class="form-group ">
+					
+						<h:outputText for="email" class="control-label col-lg-2" value="Contract Type"></h:outputText>
+						<div class="col-lg-10">
+						   <h:inputText class=" form-control"  minlength="2" value="#{AgentBean.contractType}"></h:inputText>
+					</div>
+					
+					</div>
+						<td colspan="2"><h:commandLink value="Ajouter Agent"
+								action="#{AgentBean.addAgent()}" /></td>
+					
+			
+			</h:form>
+			</p:fieldset>
+		 </div>
+	 </div>
+		
+	</div> 
+	
+	</div>
+	</ui:define>
+
+</ui:composition>

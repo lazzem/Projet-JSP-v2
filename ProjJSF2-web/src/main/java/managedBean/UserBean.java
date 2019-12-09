@@ -36,11 +36,11 @@ public class UserBean  implements Serializable {
 	@EJB
 	UserServiceImp UserService;
 	
-	public void addUser() {
-		UserService.ajouterUser(new User( birthDate,  cin,  confirmPassword,  email,  gender,  isActive,
-				 lastName,  name,  password,  phone,  picture,  role,  signUpDate,
-				 userName));
-	}
+//	public void addUser() {
+//		UserService.ajouterUser(new User( birthDate,  cin,  confirmPassword,  email,  gender,  isActive,
+//				 lastName,  name,  password,  phone,  picture,  role,  signUpDate,
+//				 userName));
+//	}
 
 	private List<User> ListUser;
 
@@ -51,13 +51,13 @@ public class UserBean  implements Serializable {
 
 	//private Integer postIdToBeUpdated;
 
-	public void updateUser(int IdUser) {
-		// postService.updatePost(new Post(postIdToBeUpdated, content,hashtag,type));
-		UserService.modifierUser(new User( birthDate,  cin,  confirmPassword,  email,  gender,  isActive,
-				 lastName,  name,  password,  phone,  picture,  role,  signUpDate,
-				 userName),IdUser);
-	}
-	
+//	public void updateUser(int IdUser) {
+//		// postService.updatePost(new Post(postIdToBeUpdated, content,hashtag,type));
+//		UserService.modifierUser(new User( birthDate,  cin,  confirmPassword,  email,  gender,  isActive,
+//				 lastName,  name,  password,  phone,  picture,  role,  signUpDate,
+//				 userName),IdUser);
+//	}
+//	
 	public void removeUser(int IdUser) {
 		UserService.supprimerUser(IdUser);
 	}
