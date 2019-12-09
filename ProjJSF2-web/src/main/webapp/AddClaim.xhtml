@@ -2,31 +2,55 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/Template/Back/HomeBack.xhtml">
+	template="/Template/Front/HomeFront.xhtml">
 
 	<ui:define name="content">
 
 		<h:panelGroup columns="2">
-			<h:form>
-				<table>
+		<div class="container"> 
+			<h:form class="form-signin">
+			<h2 class="form-signin-heading">
+					<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+					Enter your Claim
+				</h2>
+				<br />
+				<br />
+				
 					
 					
 					
 					<tr>
-						<td><h:outputText value="lastName"></h:outputText></td>
-						<td><h:inputText value="#{ClaimBean.nom}"></h:inputText></td>
+						<td><h:outputText value="Title"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.title}"></h:inputText></td>
 					</tr>
+					<br />
+				<br />
 					<tr>
-						<td><h:outputText value="name"></h:outputText></td>
-						<td><h:inputText value="#{ClaimBean.prenom}"></h:inputText></td>
+						<td><h:outputText value="Description"></h:outputText></td>
+						<td><h:inputText value="#{ClaimBean.description}"></h:inputText></td>
 					</tr>
+					<br />
+				<br />
 					
 					<tr>
-						<td colspan="2"><h:commandLink value="Ajouter Employé"
-								action="#{ClaimBean.addClaim}" /></td>
+						<td><h:outputText value="Type"></h:outputText></td>
+						<h:selectOneMenu class=" form-control" value="#{ClaimBean.type}">
+					<f:selectItem itemLabel="choisir le Type" itemValue=""/>
+					<f:selectItems value="#{dataClaim.claims}" />
+					</h:selectOneMenu>
 					</tr>
-				</table>
+					
+     <br/>
+<br />
+				<br />						
+					<tr>
+						<td colspan="2"><h:commandLink value="ENVOYER "
+								action="#{ClaimBean.addClaim()}" /></td>
+					</tr>
+					
+			
 			</h:form>
+			</div>
 		</h:panelGroup>
 	</ui:define>
 
