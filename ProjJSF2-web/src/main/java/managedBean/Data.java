@@ -21,6 +21,10 @@ public class Data implements Serializable{
 	}
 	
 	
+//	public Role[] getRoles()
+//	{
+//		return Role.values();
+//	}
 	
 	
 }
