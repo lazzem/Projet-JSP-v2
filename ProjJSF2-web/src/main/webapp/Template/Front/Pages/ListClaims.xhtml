@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">	    
+    <h:panelGroup columns="2">
+  		<h:form>
+ 			 <table>
+				<h:panelGroup columns="2">
+					<h:form>
+						<h:dataTable value="#{ClaimBean.claims}" var="ListClaims" border="1">
+							
+							<h:column><f:facet name="header"><h:outputText value="ID_Claim" /></f:facet>
+							<h:outputText value="#{ListClaims.id}" /></h:column>
+							
+							
+							<h:column><f:facet name="header"><h:outputText value="Title" /></f:facet>
+							<h:outputText value="#{ListClaims.title}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Description" /></f:facet>
+							<h:outputText value="#{ListClaims.description}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Type" /></f:facet>
+							<h:outputText value="#{ListClaims.type}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Status" /></f:facet>
+							<h:outputText value="#{ListClaims.status}" /></h:column>
+							
+								<h:column><f:facet name="header"><h:outputText value="Date_Creation)" /></f:facet>
+							<h:outputText value="#{ListClaims.createdAt}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Name_User" /></f:facet>
+							<h:outputText value="#{ListClaims.createdBy}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="ID_User" /></f:facet>
+							<h:outputText value="#{ListClaims.createdById}" /></h:column>
+							
+							
+							<h:column><f:facet name="header"><h:outputText value="First_Responsable" /></f:facet>
+							<h:outputText value="#{ListClaims.firstResponsable}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Responsable" /></f:facet>
+							<h:outputText value="#{ListClaims.responsable}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="Priority" /></f:facet>
+							<h:outputText value="#{ListClaims.priority}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="OpenedAt" /></f:facet>
+							<h:outputText value="#{ListClaims.openedAt}" /></h:column>
+							
+							<h:column><f:facet name="header"><h:outputText value="ResolvedAt" /></f:facet>
+							<h:outputText value="#{ListClaims.resolvedAt}" /></h:column>
+							
+								<h:column><f:facet name="header"><h:outputText value="ResolvedBy" /></f:facet>
+							<h:outputText value="#{ListClaims.resolvedBy}" /></h:column>
+							
+						
+						<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Delete" 
+					action="#{ClaimBean.RemoveClaim(ListClaims.id)}" />
+				<h:message for="btn" /></h:column>
+				
+						</h:dataTable>
+					</h:form>
+				</h:panelGroup>
+			</table>
+		</h:form>
+	</h:panelGroup>
+   </ui:define> 
+</ui:composition>

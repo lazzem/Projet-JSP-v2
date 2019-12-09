@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+<head>
+<title>Edit Agent</title>
+</head>
+	<ui:define name="content">	    
+    <h:panelGroup columns="2">
+  		<h:form>
+ 			 <table>
+				<h:panelGroup columns="2">
+					<h:form>
+			<h:outputText value="Name" />
+			<h:inputText value="#{AgentBean.name}" />
+		
+			<h:outputText value="Email" />
+			<h:inputText value="#{AgentBean.email}" />
+							
+			
+			<h:outputText value="Image" />
+			<h:inputText value="#{AgentBean.image}" />
+							
+			<h:outputText value="Salary" />
+			<h:inputText value="#{AgentBean.salary}" />
+							
+			<h:outputText value="Start_Date" />
+			<h:inputText value="#{AgentBean.startDate}" />
+							
+			<h:outputText value="End_Date" />
+			<h:inputText value="#{AgentBean.endDate}" />
+							
+			<h:outputText value="Contract_Type" />
+			<h:inputText value="#{AgentBean.contractType}" />
+											
+							
+			<h:outputText value="Role" />
+			<h:inputText value="#{AgentBean.role}" />
+							
+				<h:commandButton action="#{AgentBean.mettreAjourAgent()}" value="Mettre A jour Agent"/>
+					</h:form>
+				</h:panelGroup>
+			</table>
+		</h:form>
+	</h:panelGroup>
+   </ui:define> 
+</ui:composition>
