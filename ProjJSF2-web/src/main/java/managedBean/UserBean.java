@@ -37,8 +37,8 @@ public class UserBean  implements Serializable {
 	UserServiceImp UserService;
 	
 	public void addUser() {
-		UserService.ajouterUser(new User(birthDate ,cin,  confirmPassword,  email,  gender,  isActive,
-				 lastName,  name,  password,  phone,  picture,  role, signUpDate,
+		UserService.ajouterUser(new User( birthDate,  cin,  confirmPassword,  email,  gender,  isActive,
+				 lastName,  name,  password,  phone,  picture,  role,  signUpDate,
 				 userName));
 	}
 
