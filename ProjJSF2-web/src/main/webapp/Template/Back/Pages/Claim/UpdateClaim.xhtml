@@ -1,0 +1,157 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+
+	<ui:define name="content">
+
+<h:form>
+            <h:commandButton class="btn btn-theme01" action="/Template/Back/Pages/Claim/ListClaims?faces-redirect=true" value="Claims" />
+            </h:form>
+
+
+
+		<h:panelGroup columns="2">
+			<div class="row mt">
+				<div class="col-lg-12">
+					<h2 class="form-signin-heading">
+						<span class="" aria-hidden="true"></span> Update Claim
+					</h2>
+					<br /> <br />
+						
+						
+					
+					<div class="form-panel">
+						<br />
+
+						<div class=" form">
+							<h:form>
+								<table>
+									<h:panelGroup columns="2">
+
+										<h:form id="f2">
+
+
+											<table id="example1" class="table table-bordered table-hover">
+												<thead>
+
+													<tr>
+
+														<th>Title</th>
+
+														<th>Description</th>
+
+														<th>Priority</th>
+
+														<th>Status</th>
+
+														<th>Actions</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<ui:repeat value="#{ClaimBean.claims}" var="a">
+														<tr>
+
+															<td>#{a.title}</td>
+
+															<td>#{a.description}</td>
+
+															<td>#{a.status}</td>
+
+															<td>#{a. priority}</td>
+
+
+															<td>
+																 <h:column>
+																	<f:facet name="header">
+																		<h:outputText value="Update" />
+																	</f:facet>
+																	<h:commandButton action="#{ClaimBean.update(a)}"
+																		value="Update" class="btn btn-theme" />
+																</h:column></td>
+														</tr>
+													</ui:repeat>
+												</tbody>
+											</table>
+
+
+										</h:form>
+
+									</h:panelGroup>
+								</table>
+							</h:form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</h:panelGroup>
+
+
+		<div class="form-panel">
+			<br />
+
+			<div class=" form">
+				<h:form class="cmxform form-horizontal style-form">
+
+
+
+
+
+
+					
+
+					<div class="form-group ">
+						<h:outputText for="Salary" class="control-label col-lg-2"
+							value="Title"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{ClaimBean.title}"></h:inputText>
+						</div>
+					</div>
+					<div class="form-group ">
+						<h:outputText for="Name" class="control-label col-lg-2"
+							value="Description"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{ClaimBean.description}"></h:inputText>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<h:outputText for="Image" class="control-label col-lg-2"
+							value="Status"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{ClaimBean.status}"></h:inputText>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<h:outputText for="Email" class="control-label col-lg-2"
+							value="Priority"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{ClaimBean.priority}"></h:inputText>
+						</div>
+					</div>
+
+
+
+
+
+					<td colspan="2"><h:commandLink value="Update claim"
+							class="btn btn-theme" action="#{ClaimBean.mettreJour()}" /></td>
+
+
+
+
+
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
