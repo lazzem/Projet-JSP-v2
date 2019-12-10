@@ -1,0 +1,167 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+
+	<ui:define name="content">
+
+
+
+
+
+		<h:panelGroup columns="2">
+			<div class="row mt">
+				<div class="col-lg-12">
+					<h2 class="form-signin-heading">
+						<span class="" aria-hidden="true"></span> Update Agent
+					</h2>
+					<br /> <br />
+					<div class="form-panel">
+						<br />
+
+						<div class=" form">
+							<h:form>
+								<table>
+									<h:panelGroup columns="2">
+
+										<h:form id="f2">
+
+
+											<table id="example1" class="table table-bordered table-hover">
+												<thead>
+
+													<tr>
+
+														<th>Name</th>
+
+														<th>Email</th>
+
+														<th>Image</th>
+
+														<th>Start date</th>
+
+														<th>End date</th>
+
+														<th>Role</th>
+
+														<th>Salaire</th>
+
+														<th>Contract type</th>
+
+														<th>Actions</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<ui:repeat value="#{AgentBean.agents}" var="a">
+														<tr>
+
+															<td>#{a.name}</td>
+
+															<td>#{a.email}</td>
+
+															<td>#{a.image}</td>
+
+															<td>#{a.startDate}</td>
+
+															<td>#{a.endDate}</td>
+
+															<td>#{a.role}</td>
+
+															<td>#{a.salary}</td>
+
+															<td>#{a.contractType}</td>
+
+															<td>
+																 <h:column>
+																	<f:facet name="header">
+																		<h:outputText value="Update" />
+																	</f:facet>
+																	<h:commandButton action="#{AgentBean.update(a)}"
+																		value="Update" class="btn btn-theme" />
+																</h:column></td>
+														</tr>
+													</ui:repeat>
+												</tbody>
+											</table>
+
+
+										</h:form>
+
+									</h:panelGroup>
+								</table>
+							</h:form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</h:panelGroup>
+
+
+		<div class="form-panel">
+			<br />
+
+			<div class=" form">
+				<h:form class="cmxform form-horizontal style-form">
+
+
+
+
+
+
+					
+
+					<div class="form-group ">
+						<h:outputText for="Salary" class="control-label col-lg-2"
+							value="Salary"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{AgentBean.salary}"></h:inputText>
+						</div>
+					</div>
+					<div class="form-group ">
+						<h:outputText for="Name" class="control-label col-lg-2"
+							value="Name"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{AgentBean.name}"></h:inputText>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<h:outputText for="Image" class="control-label col-lg-2"
+							value="Image"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{AgentBean.image}"></h:inputText>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<h:outputText for="Email" class="control-label col-lg-2"
+							value="Email"></h:outputText>
+						<div class="col-lg-10">
+							<h:inputText class=" form-control" minlength="2"
+								value="#{AgentBean.email}"></h:inputText>
+						</div>
+					</div>
+
+
+
+
+
+					<td colspan="2"><h:commandLink value="Update agent"
+							class="btn btn-theme" action="#{AgentBean.mettreJour()}" /></td>
+
+
+
+
+
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

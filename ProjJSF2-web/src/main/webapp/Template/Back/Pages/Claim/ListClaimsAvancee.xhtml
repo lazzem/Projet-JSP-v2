@@ -1,0 +1,120 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Back/HomeBack.xhtml">
+
+	<ui:define name="content">	    
+    
+    
+    	<h:panelGroup columns="2">
+			<div class="row mt">
+				<div class="col-lg-12">
+					<h2 class="form-signin-heading">
+						<span class="" aria-hidden="true"></span> Claims
+					</h2>
+					<br /> <br />
+					<div class="form-panel">
+						<br />
+
+						<div class=" form">
+							<h:form>
+								<table>
+									<h:panelGroup columns="2">
+
+										<h:form id="f2">
+
+
+											<table id="example1" class="table table-bordered table-hover">
+												<thead>
+
+													<tr>
+														<th>Id</th>
+														<th>Title</th>
+
+														<th>Description</th>
+
+														<th>Type</th>
+
+														<th>Status</th>
+
+														<th>Date_Creation</th>
+
+														<th>Name_User</th>
+
+														<th>ID_User</th>
+
+														<th>First_Responsable</th>
+														
+														<th>Responsable</th>
+
+														<th>OpenedAt</th>
+
+														<th>ResolvedAt</th>
+
+														<th>ResolvedBy</th>
+														<th>Actions</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<ui:repeat value="#{ClaimBean.claims}" var="ListClaims">
+														<tr>
+
+															<td>#{ListClaims.id}</td>
+
+															<td>#{ListClaims.title}</td>
+
+															<td>#{ListClaims.description}</td>
+
+															<td>#{ListClaims.type}</td>
+
+															<td>#{ListClaims.status}</td>
+
+															<td>#{ListClaims.createdAt}</td>
+
+															<td>#{ListClaims.createdBy}</td>
+
+															<td>#{ListClaims.createdById}</td>
+
+															<td>#{ListClaims.firstResponsable}</td>
+			
+															<td>#{ListClaims.responsable}</td>
+															
+															<td>#{ListClaims.priority}</td>
+
+															<td>#{ListClaims.openedAt}</td>
+			
+															<td>#{ListClaims.resolvedAt}</td>	
+															
+															<td>#{ListClaims.resolvedBy}</td>
+															
+															<td><h:column><f:facet name="header">
+															<h:outputText value="Action" /></f:facet>
+											<h:commandButton id="btn" value="Delete" 
+					action="#{ClaimBean.RemoveClaim(ListClaims.id)}" />
+				<h:message for="btn" /></h:column>
+				
+																</td>	
+														</tr>
+													</ui:repeat>
+												</tbody>
+											</table>
+
+
+										</h:form>
+
+									</h:panelGroup>
+								</table>
+							</h:form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</h:panelGroup>
+    
+    
+    
+   </ui:define> 
+</ui:composition>
